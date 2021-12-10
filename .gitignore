@@ -1,3 +1,4 @@
 .idea
-.venv
-.tea_servise/migrations
+venv
+tea_servise/migrations
+__pycache__*
