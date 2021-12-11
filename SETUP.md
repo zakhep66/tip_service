@@ -50,7 +50,7 @@ $ python manage.py createsuperuser (для Linux: python3 manage.py createsuperu
 $ python manage.py runserver (для Linux: python3 manage.py runserver)
 ```
 
-#### Перед загрузкой на github
+#### Перед загрузкой на gitlab
 
 Если вы устанавливали новые зависимости в Django, то сохраните их в requirenments.txt
 
