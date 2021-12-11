@@ -13,8 +13,8 @@ class Staff(models.Model):
 		return f'{self.last_name}, {self.first_name}'
 
 	class Meta:
-		verbose_name = "Staff"
-		verbose_name_plural = "Staffs"
+		verbose_name = "Сотрудник"
+		verbose_name_plural = "Сотрудники"
 
 
 class Payment(models.Model):
@@ -51,8 +51,8 @@ class Leader(models.Model):
 		return f'{self.last_name}, {self.first_name}'
 
 	class Meta:
-		verbose_name = "Leader"
-		verbose_name_plural = "Leaders"
+		verbose_name = "Руководитель"
+		verbose_name_plural = "Руководители"
 
 
 class Branch(models.Model):
