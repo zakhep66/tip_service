@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth import authenticate, login
@@ -70,4 +70,4 @@ def staff(request):
     if request.user.groups.filter(name='Staff').exists():
         person = Staff.objects.get(user=request.user.id)
         return render(request, 'staff.html', {'staff': person})
-    return HttpResponseRedirect('/')
+    return HttpResponseForbidden()
