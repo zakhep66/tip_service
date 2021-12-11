@@ -2,3 +2,4 @@
 venv
 tea_servise/migrations
 __pycache__*
+db.sqlite3
