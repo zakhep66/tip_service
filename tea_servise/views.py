@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegistrationForm
 from .models import Leader
 from .models import Staff
+from django.contrib.auth.models import Group
 
 
 def index(request):
@@ -59,6 +60,8 @@ class RegistrationView(View):
                 first_name=form.cleaned_data['first_name'],
                 last_name=form.cleaned_data['last_name']
             )
+            group = Group.objects.get(name='Leader')
+            new_user.groups.add(group)
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
             return HttpResponseRedirect('/')
