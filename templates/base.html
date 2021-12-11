@@ -11,6 +11,8 @@
 </head>
 <body class="p-3">
     <div class="container">
+    <a class="btn btn-outline-primary" href="{% url 'logout' %}">Выйти</a>
+    <a class="btn btn-outline-primary" href="{% url 'login' %}">Войти в систему</a>
         {% block content %}{% endblock %}
     </div>
 </body>
