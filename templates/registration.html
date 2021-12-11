@@ -9,6 +9,8 @@
     <title>Авторизация</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 </head>
 <body>
 <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -31,8 +33,11 @@
                 </div>
                 <div>
                     <label for="phone" class="sr-only">Телефон</label>
-                    {% comment %} тут паттерн надо сделать type="tel"  pattern="2[0-9]{3}-[0-9]{3}" {% endcomment %}
-                    <input id="phone" name="phone" type="tel" pattern="2[0-9]{3}-[0-9]{3}" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm" placeholder="Телефон">
+                    <script src="js/jquery.maskedinput.min.js"></script>
+                    <input id="phone" name="phone" type="tel" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm" placeholder="Телефон">
+                    <script>
+                        $("#phone").inputmask("+7(999)999-99-99");
+                    </script>
                 </div>
                 <div>
                     <label for="first_name" class="sr-only">Имя и отчество</label>
