@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+{% block content %}
+    <h1 class="mb-4">Главная</h1>
+    <a class="btn btn-outline-primary" href="{% url 'logout' %}">Выйти</a>
+    <a class="btn btn-outline-primary" href="{% url 'login' %}">Войти в систему</a>
+{% endblock %}

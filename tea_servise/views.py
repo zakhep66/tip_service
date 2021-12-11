@@ -6,7 +6,7 @@ from .forms import LoginForm
 
 
 def index(request):
-    return render(request, 'tea_dervise/index.html')
+    return render(request, 'index.html')
 
 
 class LoginView(View):
