@@ -24,7 +24,7 @@ class Payment(models.Model):
 	data = models.DateField(verbose_name="дата", auto_now_add=True)
 
 	def __str__(self):
-		return self.staff
+		return self.staff.first_name
 
 	class Meta:
 		verbose_name = "Чаевые"

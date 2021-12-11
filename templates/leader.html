@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Личный кабинет руководителя
+{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        {{ leader.first_name }}
+        {{ leader.last_name }}
+        {{ leader.phone }}
+        {{ request.user.username }}
+    {% endif %}
+{% endblock %}
