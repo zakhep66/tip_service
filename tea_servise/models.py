@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Staff(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	first_name = models.CharField(max_length=20)
+	first_name = models.CharField(max_length=40)
 	last_name = models.CharField(max_length=20)
 	id_branch = models.ForeignKey('Branch', related_name="id_branch", on_delete=models.CASCADE)
 	card_number = models.CharField(verbose_name="Номер карты", max_length=20, null=True)
@@ -43,8 +43,8 @@ class Organization(models.Model):
 
 class Leader(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	phone = models.CharField(max_length="20", verbose_name="Номер телефона")
-	first_name = models.CharField(max_length=20)
+	phone = models.CharField(max_length=20, verbose_name="Номер телефона", null=True)
+	first_name = models.CharField(max_length=40)
 	last_name = models.CharField(max_length=20)
 
 	def __str__(self):
