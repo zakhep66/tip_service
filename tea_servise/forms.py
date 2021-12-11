@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 
+from tea_servise.models import Leader
+
 
 class LoginForm(forms.ModelForm):
 	"""Авторизация - перебрасывает пользователя в его пространство"""
@@ -43,7 +45,7 @@ class RegistrationForm(forms.ModelForm):
 
 	def clean_phone(self):
 		phone = self.cleaned_data['phone']
-		if User.objects.filter(phone=phone).exists():
+		if Leader.objects.filter(phone=phone).exists():
 			raise forms.ValidationError(f'Данный номер телефона уже зарегистрирован в системе')
 		return phone
 
