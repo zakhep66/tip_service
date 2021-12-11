@@ -1,4 +1,7 @@
+from django.template.context_processors import static
 from django.urls import path
+
+from UP import settings
 from . import views
 from django.contrib.auth.views import LogoutView
 

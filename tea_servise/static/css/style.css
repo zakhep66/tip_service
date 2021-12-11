@@ -1,0 +1,18 @@
+button{
+    background-color: #BBB1A3;
+    color: #625C60;
+}
+
+button:hover{
+    background-color: #625C60;
+    color: #BBB1A3;
+}
+
+.forgot, .remember-text, h1{
+    color: #625C60;
+}
+
+#login, #password{
+    color: #625C60;
+    border: 1px solid #625C60;
+}
