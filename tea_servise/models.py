@@ -56,13 +56,13 @@ class Leader(models.Model):
 
 
 class Branch(models.Model):
-	leader = models.ForeignKey(Staff, related_name="leader", on_delete=models.CASCADE)
+	leader = models.ForeignKey(Leader, related_name="leader", on_delete=models.CASCADE)
 	organization = models.ForeignKey(Organization, related_name="organization", on_delete=models.CASCADE)
 	branch_name = models.CharField(verbose_name="Название филиала", max_length=30)
 	address = models.CharField(verbose_name="Адресс", max_length=100)
 
 	def __str__(self):
-		return self.leader
+		return self.branch_name
 
 	class Meta:
 		verbose_name = "Филиал"
