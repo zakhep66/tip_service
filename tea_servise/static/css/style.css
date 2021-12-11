@@ -12,7 +12,11 @@ button:hover{
     color: #625C60;
 }
 
-#login, #password{
+#login, #password, #first_name, #last_name, #phone, #confirm_password{
     color: #625C60;
-    border: 1px solid #625C60;
 }
+
+#login, #password, #first_name, #last_name, #phone, #confirm_password:focus{
+    border: 1px solid #BBB1A3;
+}
+
