@@ -4,5 +4,12 @@
     Личный кабинет сотрудника
 {% endblock %}
 {% block content %}
-    Личный кабинет такой личный
+    {% if request.user.is_authenticated %}
+
+        {{ staff.first_name }}
+        {{ staff.last_name }}
+        {{ staff.id_branch }}
+        {{ staff.card_number }}
+        <img src="{{ staff.avatar }}" alt="фотография сотрудника" style="max-width: 100%;">
+    {% endif %}
 {% endblock %}

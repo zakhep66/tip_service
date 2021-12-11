@@ -67,5 +67,7 @@ class RegistrationView(View):
 
 
 def staff(request):
-    person = Staff.objects.get(user=request.user.id)
-    return render(request, 'staff.html', {'staff': person})
+    if request.user.groups.filter(name='Staff').exists():
+        person = Staff.objects.get(user=request.user.id)
+        return render(request, 'staff.html', {'staff': person})
+    return HttpResponseRedirect('/')
