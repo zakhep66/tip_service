@@ -8,6 +8,7 @@ class Staff(models.Model):
 	last_name = models.CharField(max_length=20)
 	id_branch = models.ForeignKey('Branch', related_name="id_branch", on_delete=models.CASCADE)
 	card_number = models.CharField(verbose_name="Номер карты", max_length=20, null=True)
+	avatar = models.ImageField(verbose_name="Аватар", null=True)
 
 	def __str__(self):
 		return f'{self.last_name}, {self.first_name}'
