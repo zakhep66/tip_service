@@ -26,8 +26,8 @@ class Payment(models.Model):
 		return self.staff
 
 	class Meta:
-		verbose_name = "Сотрудник"
-		verbose_name_plural = "Сотрудники"
+		verbose_name = "Чаевые"
+		verbose_name_plural = "Чаевые"
 
 
 class Organization(models.Model):
