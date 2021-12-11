@@ -18,7 +18,7 @@ class Staff(models.Model):
 
 
 class Payment(models.Model):
-	staff = models.ForeignKey('Staff', related_name="staff", on_delete=models.CASCADE)
+	staff = models.ForeignKey(Staff, related_name="staff", on_delete=models.CASCADE)
 	sum_tea = models.IntegerField(verbose_name="Сумма чаевых")
 	data = models.DateField(verbose_name="дата", auto_now_add=True)
 
@@ -57,7 +57,7 @@ class Leader(models.Model):
 
 class Branch(models.Model):
 	leader = models.ForeignKey(Staff, related_name="leader", on_delete=models.CASCADE)
-	organization = models.ForeignKey('Organization', related_name="organization", on_delete=models.CASCADE)
+	organization = models.ForeignKey(Organization, related_name="organization", on_delete=models.CASCADE)
 	branch_name = models.CharField(verbose_name="Название филиала", max_length=30)
 	address = models.CharField(verbose_name="Адресс", max_length=100)
 
