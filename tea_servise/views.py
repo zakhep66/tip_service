@@ -70,11 +70,11 @@ def staff(request):
     if request.user.groups.filter(name='Staff').exists():
         person = Staff.objects.get(user=request.user.id)
         return render(request, 'staff.html', {'staff': person})
-    return HttpResponseForbidden()
+    return HttpResponseRedirect('/login')
 
 
 def leader(request):
     if request.user.groups.filter(name='Leader').exists():
         person = Leader.objects.get(user=request.user.id)
         return render(request, 'leader.html', {'leader': person})
-    return HttpResponseForbidden()
+    return HttpResponseRedirect('/login')
