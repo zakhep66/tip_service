@@ -30,7 +30,7 @@ class LoginView(View):
                     # будет редирект на страницу, указанную ниже
                     return HttpResponseRedirect('/staff')  # здесь нужно указать страницу на которую будет редирект
                 elif request.user.groups.filter(name='Leader').exists():  # схема таже
-                    return HttpResponseRedirect('')
+                    return HttpResponseRedirect('/leader')
         context = {'form': form}
         return render(request, 'login.html', context)
 
@@ -70,4 +70,11 @@ def staff(request):
     if request.user.groups.filter(name='Staff').exists():
         person = Staff.objects.get(user=request.user.id)
         return render(request, 'staff.html', {'staff': person})
+    return HttpResponseForbidden()
+
+
+def leader(request):
+    if request.user.groups.filter(name='Leader').exists():
+        person = Leader.objects.get(user=request.user.id)
+        return render(request, 'leader.html', {'leader': person})
     return HttpResponseForbidden()
