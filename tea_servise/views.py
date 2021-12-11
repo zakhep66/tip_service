@@ -64,7 +64,7 @@ class RegistrationView(View):
             new_user.groups.add(group)
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/leader')
         context = {'form': form}
         return render(request, 'registration.html', context)
 
