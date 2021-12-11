@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegistrationForm
-from .models import Leader
+from .models import Leader, Payment
 from .models import Staff
 from django.contrib.auth.models import Group
 
@@ -72,7 +72,8 @@ class RegistrationView(View):
 def staff(request):
     if request.user.groups.filter(name='Staff').exists():
         person = Staff.objects.get(user=request.user.id)
-        return render(request, 'staff.html', {'staff': person})
+        tips = Payment.objects.filter(staff=person.id)
+        return render(request, 'staff.html', {'staff': person, 'tips': tips})
     return HttpResponseRedirect('/login')
 
 
