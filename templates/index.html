@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>
             {% block title %}
                 Главная
@@ -41,7 +42,7 @@
                 <img src="../media/tips-service.png" class="img-tips-service">
 
                 <button class="button-transfer-money">
-                    <span class="text-transfer-money">Перевести</span>
+                    <a href="#transfer-money" class="text-transfer-money">Перевести</a>
                     <img src="../media/coins.png" class="img-transfer-money">
                 </button>
 
@@ -78,11 +79,24 @@
                 </button>
             </div>
 
-            <div class="bg-light-1">
+            <div class="bg-light-1-last" id="transfer-money">
                 <h1 class="last">Перевод чаевых сотруднику</h1>
                 <img src="../media/qr-code.png" class="img-qr">
-                <label for="id">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label><br>
-                <input id="id" placeholder="id сотрудника..."></input>
+                <form method="POST" action="index.html">
+                    <label for="staff">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label>
+                    <input id="staff" placeholder="id сотрудника..." required>
+                    <label for="sum_tea">Введите сумму чаевых:</label>
+                    <input id="sum_tea" placeholder="cумма..." required>
+                    <label for="review">Отзыв на сотрудника:</label>
+                    <input id="review" placeholder="комментарий...">
+                    <label for="rating">Оценка:</label>
+                    <input id="rating" placeholder="оценка от 1 до 5...">
+                    <button type="submit" class="button-form">
+                        <span class="text-logo-first">Дать</span>
+                        <span class="text-logo-second">на</span>
+                        <span class="text-logo-third">Чай</span>
+                    </button>
+                </form>
             </div>
 
         </main>
