@@ -4,6 +4,7 @@
     Личный кабинет сотрудника
 {% endblock %}
 {% block content %}
+<<<<<<< HEAD
         <div class="w-full grid grid-rows-2 grid-flow-col gap-1 lg:items-center lg:w-auto mt-10">
             <div>
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
@@ -56,4 +57,20 @@
                 </div>
             </div>
         </div>
+=======
+    {% if request.user.is_authenticated %}
+
+        {{ staff.first_name }}
+        {{ staff.last_name }}
+        {{ staff.id_branch }}
+        {{ staff.card_number }}
+        <img src="../media/{{ staff.avatar }}" alt="фотография сотрудника" style="max-width: 100%;">
+        {% for t in tips %}
+            <div>
+            {{ t.sum_tea }}
+            {{ t.data }}
+            </div>
+        {% endfor %}
+    {% endif %}
+>>>>>>> c4776aae6c06c88abb8577c9c0f5072e117360ee
 {% endblock %}

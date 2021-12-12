@@ -1,10 +1,11 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegistrationForm
-from .models import Leader
+from .models import Leader, Payment
 from .models import Staff
+from django.contrib.auth.models import Group
 
 
 def index(request):
@@ -30,7 +31,7 @@ class LoginView(View):
                     # будет редирект на страницу, указанную ниже
                     return HttpResponseRedirect('/staff')  # здесь нужно указать страницу на которую будет редирект
                 elif request.user.groups.filter(name='Leader').exists():  # схема таже
-                    return HttpResponseRedirect('')
+                    return HttpResponseRedirect('/leader')
         context = {'form': form}
         return render(request, 'login.html', context)
 
@@ -59,13 +60,25 @@ class RegistrationView(View):
                 first_name=form.cleaned_data['first_name'],
                 last_name=form.cleaned_data['last_name']
             )
+            group = Group.objects.get(name='Leader')
+            new_user.groups.add(group)
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/leader')
         context = {'form': form}
         return render(request, 'registration.html', context)
 
 
 def staff(request):
-    person = Staff.objects.get(user=request.user.id)
-    return render(request, 'staff.html', {'staff': person})
+    if request.user.groups.filter(name='Staff').exists():
+        person = Staff.objects.get(user=request.user.id)
+        tips = Payment.objects.filter(staff=person.id)
+        return render(request, 'staff.html', {'staff': person, 'tips': tips})
+    return HttpResponseRedirect('/login')
+
+
+def leader(request):
+    if request.user.groups.filter(name='Leader').exists():
+        person = Leader.objects.get(user=request.user.id)
+        return render(request, 'leader.html', {'leader': person})
+    return HttpResponseRedirect('/login')
