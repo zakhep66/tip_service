@@ -87,8 +87,16 @@ def staff(request):
             if t.sum_tea is not None:
                 count_sum_tea += 1
                 sum_tea += t.sum_tea
-        average_rating = int(rating / count_rating * 10) / 10
-        average_sum_tea = int(sum_tea / count_sum_tea * 100) / 100
+        if count_rating != 0:
+            average_rating = int(rating / count_rating * 10) / 10
+        else:
+            average_rating = 0
+
+        if count_sum_tea != 0:
+            average_sum_tea = int(sum_tea / count_sum_tea * 100) / 100
+        else:
+            average_sum_tea = 0
+
         return render(request, 'staff.html', {'staff': person, 'tips': tips, 'sum': sum, 'average_rating': average_rating, 'average_sum_tea': average_sum_tea})
     return HttpResponseRedirect('/login')
 
