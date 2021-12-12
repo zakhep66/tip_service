@@ -4,8 +4,8 @@
     Личный кабинет сотрудника
 {% endblock %}
 {% block content %}
-<<<<<<< HEAD
-        <div class="w-full grid grid-rows-2 grid-flow-col gap-1 lg:items-center lg:w-auto mt-10">
+        {% if request.user.is_authenticated %}
+        <div class="w-full grid grid-rows-2 grid-flow-col lg:items-center lg:w-auto mt-10">
             <div>
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
                     <div class="data col-start-3 col-span-2 md:grid-cols-1 ml-1">
@@ -15,15 +15,20 @@
                         <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
                     </div>
                 </div>
+
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
                         <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
-                            <div class="card_staff rounded-lg p-6 grid grid-cols-1 md:grid-cols-8">
-                                <div class="col-start-1 col-span-6 items-center md:grid-cols-1">
-                                    <h3 class="leading-loose font-normal text-base">Колтунов Ростислав Маратович</h3>
-                                    <h4 class="text-gray-400 leading-loose font-normal text-base">Организация: ООО Шоколадница</h4>
+                            <div class="card_staff p-6 grid grid-cols-1 md:grid-cols-12">
+                                <div class="col-start-1 col-span-9 items-center md:grid-cols-1 pl-7">
+                                    <h2 class="staff_name mb-1">{{ staff.first_name }} {{ staff.last_name }}</h2>
+                                    <p class="mb-1">Организация: ООО "Шоколадница"</p>
+                                    <p class="mb-1">{{ staff.id_branch }}</p>
+                                    <p class="mb-1">Руководитель: Господь Бог</p>
+                                    <p class="mb-1">Номер карты: {{ staff.card_number }}</p>
+                                    <p class="mb-1">Логин: {{ request.user.username }}</p>
                                 </div>
-                                <div class="block_photo_staff col-start-7 col-span-2 items-center md:grid-cols-1">
-                                    <img class="photo_staff h-40 w-40 object-cover object-center rounded-full" src="../media/шрек.jpg" alt="photo_staff">
+                                <div class="block_photo_staff col-start-10 col-span-3 md:grid-cols-1">
+                                    <img class="mt-2 photo_staff h-40 w-40 object-cover object-center rounded-full" src="../media/{{ staff.avatar }}" alt="photo_staff">
                                 </div>
                             </div>
                         </div>
@@ -39,38 +44,75 @@
                     </div>
                 </div>
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
-                        <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
-                            <div class="statistic_staff rounded-lg p-6">
-                                <div class="flex items-center space-x-6 mb-4">
-                                    <img class="h-28 w-28 object-cover object-center rounded-full"
-                                    src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo">
-                                    <div>
-                                        <p class="text-xl text-gray-700 font-normal mb-1">Dany Bailey</p>
-                                        <p class="text-base text-blue-600 font-normal">Software Engineer</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="text-gray-400 leading-loose font-normal text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </div>
+                    <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
+                        <div class="statistic_staff grid grid-cols-1 items-center md:grid-cols-3 p-5">
+                            <div class="my_block col-start-1 col-span-1 items-center md:grid-cols-1">
+                                <img class="h-24 w-24 ml-8" src="../media/money.png" alt="photo_money">
+                                <p class="mb-1 mt-1">Всего чаевых:</p>
+                                <p class="staff_money mb-1">222р</p>
+                            </div>
+                            <div class="col-start-2 col-span-1 items-center md:grid-cols-1">
+                                <img class="h-24 w-24 ml-10" src="../media/graph.png" alt="photo_graph">
+                                <p class="mb-1 mt-1">Средняя сумма:</p>
+                                <p class="staff_money mb-1">175р</p>
+                            </div>
+                            <div class="col-start-3 col-span-1 items-center md:grid-cols-1">
+                                <img class="h-24 w-24 ml-8" src="../media/rating.png" alt="photo_rating">
+                                <p class="mb-1 mt-1">Рейтинг:</p>
+                                <p class="staff_money mb-1">4,5</p>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
-=======
-    {% if request.user.is_authenticated %}
-
-        {{ staff.first_name }}
-        {{ staff.last_name }}
-        {{ staff.id_branch }}
-        {{ staff.card_number }}
-        <img src="../media/{{ staff.avatar }}" alt="фотография сотрудника" style="max-width: 100%;">
-        {% for t in tips %}
             <div>
-            {{ t.sum_tea }}
-            {{ t.data }}
+                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
+                    <div class="data col-start-3 col-span-2 md:grid-cols-1 ml-5">
+                        <span class="data">История</span>
+                    </div>
+                    <div class="col-start-5 col-span-5 md:grid-cols-1">
+                        <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
+                    </div>
+                </div>
+                {% for t in tips %}
+                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
+                    <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
+                        <div class="history grid grid-cols-2 md:grid-cols-12 h-28">
+                            <div class="star col-start-1 col-span-3 md:grid-cols-1 ml-16 mt-6">
+                                <p class="">{{ t.sum_tea }} р</p>
+                                <p class="">*****</p>
+                            </div>
+                            <div class="review_blocks col-start-4 col-span-6 md:grid-cols-1">
+                                <p class="review h-10 p-3 mt-9">Блин четкий пацан ваще</p>
+                            </div>
+                            <div class="date col-start-10 col-span-3 md:grid-cols-1 mt-4 mr-3">
+                                <p>{{ t.data }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
+                    <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
+                        <div class="history_light grid grid-cols-2 md:grid-cols-12 h-28">
+                            <div class="star col-start-1 col-span-3 md:grid-cols-1 ml-16 mt-6">
+                                <p class="">50 р</p>
+                                <p class="">*****</p>
+                            </div>
+                            <div class="review_blocks col-start-4 col-span-6 md:grid-cols-1">
+                                <p class="review_light h-10 p-3 mt-9">Блин четкий пацан ваще</p>
+                            </div>
+                            <div class="date col-start-10 col-span-3 md:grid-cols-1 mt-4 mr-3">
+                                <p>11 декабря 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
             </div>
-        {% endfor %}
-    {% endif %}
->>>>>>> c4776aae6c06c88abb8577c9c0f5072e117360ee
+        </div>
+
+{% endif %}
 {% endblock %}

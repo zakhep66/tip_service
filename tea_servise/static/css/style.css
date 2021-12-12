@@ -83,20 +83,96 @@ main{
 .card_staff{
     background-color: #E5DFDB;
     border: 1px solid #76A34F;
+    border-radius: 12px;
 }
 
 .statistic_staff{
     background-color: #BBB1A3;
     border: 1px solid #76A34F;
+    border-radius: 12px;
     vertical-align: middle;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    color:#E5DFDB;
+    font-size: 21px;
+    font-weight: 500;
 }
 
 .photo_staff{
     border: 2px solid #76A34F;
+    text-align: end;
 }
 
 .block_photo_staff{
     vertical-align: middle;
-    text-align: center;
+    text-align: right;
+    margin-right: 0;
 }
 
+.staff_name{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.card_staff p{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.history{
+    background-color: #978D7F;
+    vertical-align: end;
+    color:#E5DFDB;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+}
+
+.review{
+    border-radius: 12px;
+    background-color: #E5DFDB;
+    color: #8F7962;
+    font-size: 12px;
+    text-align: start;
+    border-radius: 16px;
+}
+
+.date{
+    vertical-align: top;
+    text-align: end;
+}
+
+.star{
+    vertical-align: end;
+    font-size: 22px;
+}
+
+.history_light{
+    background-color: #E5DFDB;
+    vertical-align: end;
+    color:#787774;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid #76A34F;
+}
+
+.review_light{
+    border-radius: 12px;
+    background-color: #BBB1A3;
+    color: #E5DFDB;
+    font-size: 12px;
+    text-align: start;
+    border-radius: 16px;
+}
+
+.staff_money{
+    color:#787774;
+    font-family: 'Marmelad', sans-serif;
+    font-size: 25px;
+}
+
+.my_block img{
+    margin-right: 0;
+}
