@@ -84,7 +84,16 @@ def staff(request):
 def leader(request):
     if request.user.groups.filter(name='Leader').exists():
         person = Leader.objects.get(user=request.user.id)
-        return render(request, 'leader.html', {'leader': person})
+
+        # создание словаря из филиалов и работающих там сотрудников
+        branches = Branch.objects.filter(leader=person.id)
+        branch_staff = []
+        for b in branches:
+            staff_list = Staff.objects.filter(id_branch=b.id)
+            for s in staff_list:
+                branch_staff.append(s)
+
+        return render(request, 'leader.html', {'leader': person, 'branches': branches, 'branch_staff': branch_staff})
     return HttpResponseRedirect('/login')
 
 
