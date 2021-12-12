@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Seymour+One&display=swap');
+
 button{
     background-color: #BBB1A3;
     color: #625C60;
@@ -12,7 +15,49 @@ button:hover{
     color: #625C60;
 }
 
-#login, #password{
+#login, #password, #first_name, #last_name, #phone, #confirm_password{
     color: #625C60;
-    border: 1px solid #625C60;
 }
+
+#login, #password, #first_name, #last_name, #phone, #confirm_password:focus{
+    border: 1px solid #BBB1A3;
+}
+
+header{
+    height: 40px;
+}
+
+.in{
+    color: #787774;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+
+}
+
+.in a{
+    font-size: 18px;
+}
+
+nav{
+    background-color: #DFDCCF;
+    border-bottom: 2px solid #76A34F;
+}
+
+nav .logo_text{
+    font-family: 'Amatic SC', cursive;
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.logo_text_first{
+    color: #76A34F;
+}
+
+.logo_text_second{
+    color: #939598;
+}
+
+.logo_text_third{
+    color: #8F7962;
+}
+
