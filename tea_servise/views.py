@@ -4,7 +4,7 @@ from django.views import View
 from django.contrib.auth import authenticate, login
 from django.views.generic import DetailView, ListView
 
-from .forms import LoginForm, RegistrationForm
+from .forms import *
 from .models import *
 from django.contrib.auth.models import Group
 
