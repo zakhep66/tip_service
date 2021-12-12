@@ -122,7 +122,7 @@
     left: 60px;
 }
 
-.text-transfer-money
+.text-transfer-money, .text-registration
 {
     font-family: 'Amatic SC', cursive;
     font-size: 50px;
@@ -138,4 +138,118 @@
     position: relative;
     left: 210px;
     bottom: 45px;
+}
+
+h1.second
+{
+    font-family: 'Marmelad', sans-serif;
+    font-size: 40px;
+    color: #625C60;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    width: 33%;
+    text-align: center;
+    margin-bottom: 130px;
+}
+
+.line
+{
+    width: 3px;
+    height: 40vh;
+    background-color: #625C60;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.img-registration
+{
+    height: 50px;
+    position: relative;
+    left: 230px;
+    bottom: 45px;
+}
+
+.button-registration
+{
+    background-color: #C1D1AA;
+    border: none;
+    border-radius: 20px;
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+}
+
+.parent
+{
+    display: flex;
+}
+
+.column
+{
+    width: 33%;
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.img-column
+{
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.text-column
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #625C60;
+}
+
+.img-qr
+{
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1
+{
+    font-family: 'Marmelad', sans-serif;
+    font-size: 40px;
+    color: #625C60;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    width: 33%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+input
+{
+    background-color: #C1D1AA;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.last
+{
+    align-items: center;
 }
