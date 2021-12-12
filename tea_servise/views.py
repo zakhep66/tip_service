@@ -73,7 +73,10 @@ def staff(request):
     if request.user.groups.filter(name='Staff').exists():
         person = Staff.objects.get(user=request.user.id)
         tips = Payment.objects.filter(staff=person.id)
-        return render(request, 'staff.html', {'staff': person, 'tips': tips})
+        sum = 0
+        for t in tips:
+            sum += t.sum_tea
+        return render(request, 'staff.html', {'staff': person, 'tips': tips, 'sum': sum})
     return HttpResponseRedirect('/login')
 
 
