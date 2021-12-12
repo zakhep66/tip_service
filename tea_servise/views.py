@@ -75,9 +75,21 @@ def staff(request):
         person = Staff.objects.get(user=request.user.id)
         tips = Payment.objects.filter(staff=person.id)
         sum = 0
+        rating = 0
+        count_rating = 0
+        count_sum_tea = 0
+        sum_tea = 0
         for t in tips:
             sum += t.sum_tea
-        return render(request, 'staff.html', {'staff': person, 'tips': tips, 'sum': sum})
+            if t.rating is not None:
+                count_rating += 1
+                rating += t.rating
+            if t.sum_tea is not None:
+                count_sum_tea += 1
+                sum_tea += t.sum_tea
+        average_rating = int(rating / count_rating * 10) / 10
+        average_sum_tea = int(sum_tea / count_sum_tea * 100) / 100
+        return render(request, 'staff.html', {'staff': person, 'tips': tips, 'sum': sum, 'average_rating': average_rating, 'average_sum_tea': average_sum_tea})
     return HttpResponseRedirect('/login')
 
 
