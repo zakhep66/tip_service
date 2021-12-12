@@ -13,5 +13,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('staff', views.staff, name="staff"),
     path('leader', views.leader, name="leader"),
+    # path('add_staff/<int:pk>/', views.add_staff, name="add_staff"),
     path('registration', views.RegistrationView.as_view(), name="registration"),
 ]
