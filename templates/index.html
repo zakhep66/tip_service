@@ -48,13 +48,41 @@
             </div>
 
             <div class="bg-menu-color">
+                <h1 class="second">Наши преимущества:</h1>
+
+                <div class="parent">
+                    <div class="column">
+                        <img src="../media/cool.png" class="img-column">
+                        <span class="text-column">Мы классные</span>
+                    </div>
+
+                    <div class="column">
+                        <img src="../media/open-source.png" class="img-column">
+                        <span class="text-column">Мы open-source проект, а значит другие разработчики могут помогать проекту развиваться</span>
+                    </div>
+
+                    <div class="column">
+                        <img src="../media/shield.png" class="img-column">
+                        <span class="text-column">У нас безопасные переводы без комиссии (деньги нигде не хранятся, а переходят сразу от вас к сотруднику)</span>
+                    </div>
+                </div>
+
             </div>
 
             <div class="bg-light-2">
-                <a class="btn btn-outline-primary" href="{% url 'registration' %}">Подключить</a>
+                <h1>Подключить сотрудников вашего заведения можно всего в пару кликов</h1>
+                <div class="line"></div>
+                <button class="button-registration">
+                    <a href="{% url 'registration' %}" class="text-registration">Подключить</a>
+                    <img src="../media/people.png" class="img-registration">
+                </button>
             </div>
 
             <div class="bg-light-1">
+                <h1 class="last">Перевод чаевых сотруднику</h1>
+                <img src="../media/qr-code.png" class="img-qr">
+                <label for="id">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label><br>
+                <input id="id" placeholder="id сотрудника..."></input>
             </div>
 
         </main>
