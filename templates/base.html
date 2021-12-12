@@ -23,7 +23,7 @@
                 </a>
             </div>
             <div class="in">
-                <a href="#" class="text-sm px-4 py-2 leading-none lg:mt-0">Личный кабинет</a>
+                <a href="{% url 'logout' %}" class="text-sm px-4 py-2 leading-none lg:mt-0">Личный кабинет</a>
             </div>
             <div class="mr-5">
                 <img class="mx-auto h-5 w-auto" src="../media/logout.png" alt="Workflow">
@@ -31,10 +31,7 @@
         </nav>
     </header>
     <main>
-        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto mt-20">
-        <a href="{% url 'logout' %}">Выйти</a>
-            {% block content %}{% endblock %}
-        </div>
+        {% block content %}{% endblock %}
     </main>
 </body>
 </html>

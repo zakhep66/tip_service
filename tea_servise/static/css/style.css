@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Seymour+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Marmelad&family=Seymour+One&display=swap');
+
+
+body{
+    background-color: #F0EDE8;
+}
 
 button{
     background-color: #BBB1A3;
@@ -31,7 +37,6 @@ header{
     color: #787774;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-
 }
 
 .in a{
@@ -59,5 +64,39 @@ nav .logo_text{
 
 .logo_text_third{
     color: #8F7962;
+}
+
+.line{
+    background-color: #91B56B;
+}
+.data{
+    text-align: end;
+    font-size: 20px;
+    font-family: 'Marmelad', sans-serif;
+}
+
+main{
+    font-family: 'Montserrat', sans-serif;
+    color: #787774;
+}
+
+.card_staff{
+    background-color: #E5DFDB;
+    border: 1px solid #76A34F;
+}
+
+.statistic_staff{
+    background-color: #BBB1A3;
+    border: 1px solid #76A34F;
+    vertical-align: middle;
+}
+
+.photo_staff{
+    border: 2px solid #76A34F;
+}
+
+.block_photo_staff{
+    vertical-align: middle;
+    text-align: center;
 }
 
