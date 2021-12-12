@@ -19,9 +19,18 @@ class Staff(models.Model):
 
 
 class Payment(models.Model):
+	STAR = (
+		(1, 'единица'),
+		(2, 'двойка'),
+		(3, 'тройка'),
+		(4, 'четвёрка'),
+		(5, 'пятёрка')
+	)
 	staff = models.ForeignKey(Staff, related_name="staff", on_delete=models.CASCADE)
 	sum_tea = models.IntegerField(verbose_name="Сумма чаевых")
 	data = models.DateField(verbose_name="дата", auto_now_add=True)
+	rating = models.IntegerField(verbose_name="Рейтинг", choices=STAR, null=True)
+	review = models.TextField(verbose_name="Отзыв о сотруднике", null=True)
 
 	def __str__(self):
 		return self.staff.first_name

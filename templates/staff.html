@@ -15,7 +15,6 @@
                         <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
                     </div>
                 </div>
-
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
                         <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
                             <div class="card_staff p-6 grid grid-cols-1 md:grid-cols-12">
@@ -23,7 +22,7 @@
                                     <h2 class="staff_name mb-1">{{ staff.first_name }} {{ staff.last_name }}</h2>
                                     <p class="mb-1">Организация: ООО "Шоколадница"</p>
                                     <p class="mb-1">{{ staff.id_branch }}</p>
-                                    <p class="mb-1">Руководитель: Господь Бог</p>
+                                    <p class="mb-1">Руководитель: Иванов Иван Иванович</p>
                                     <p class="mb-1">Номер карты: {{ staff.card_number }}</p>
                                     <p class="mb-1">Логин: {{ request.user.username }}</p>
                                 </div>
@@ -49,17 +48,17 @@
                             <div class="my_block col-start-1 col-span-1 items-center md:grid-cols-1">
                                 <img class="h-24 w-24 ml-8" src="../media/money.png" alt="photo_money">
                                 <p class="mb-1 mt-1">Всего чаевых:</p>
-                                <p class="staff_money mb-1">222р</p>
+                                <p class="staff_money mb-1">{{ sum }} р</p>
                             </div>
                             <div class="col-start-2 col-span-1 items-center md:grid-cols-1">
                                 <img class="h-24 w-24 ml-10" src="../media/graph.png" alt="photo_graph">
                                 <p class="mb-1 mt-1">Средняя сумма:</p>
-                                <p class="staff_money mb-1">175р</p>
+                                <p class="staff_money mb-1">{{ average_sum_tea }} р</p>
                             </div>
                             <div class="col-start-3 col-span-1 items-center md:grid-cols-1">
                                 <img class="h-24 w-24 ml-8" src="../media/rating.png" alt="photo_rating">
                                 <p class="mb-1 mt-1">Рейтинг:</p>
-                                <p class="staff_money mb-1">4,5</p>
+                                <p class="staff_money mb-1"></p>
                             </div>
                         </div>
                     </div>

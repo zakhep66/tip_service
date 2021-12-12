@@ -16,7 +16,7 @@
         <nav class="flex items-center justify-between p-3 h-20">
             <img class="mx-auto h-16 mr-2 ml-1" src="../media/logo_nav.png" alt="Workflow">
             <div class="text-sm lg:flex-grow">
-                <a href="#responsive-header" class="logo_text block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <a href="{% url 'index' %}" class="logo_text block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                 <span class="logo_text_first">Дай</span>
                 <span class="logo_text_second">на</span>
                 <span class="logo_text_third">Чай</span>
@@ -26,12 +26,20 @@
                 <a href="{% url 'logout' %}" class="text-sm px-4 py-2 leading-none lg:mt-0">Личный кабинет</a>
             </div>
             <div class="mr-5">
-                <img class="mx-auto h-5 w-auto" src="../media/logout.png" alt="Workflow">
+                <a href="{% url 'logout' %}">
+                    <img class="mx-auto h-5 w-auto" src="../media/logout.png" alt="Workflow">
+                </a>
             </div>
         </nav>
     </header>
     <main>
+<<<<<<< HEAD
         {% block content %}{% endblock %}
+=======
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto mt-20">
+            {% block content %}{% endblock %}
+        </div>
+>>>>>>> 9d8d2c328d6feb28add318617fa84c6676e94fbc
     </main>
 </body>
 </html>
