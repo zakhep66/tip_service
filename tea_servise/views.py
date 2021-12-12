@@ -2,9 +2,10 @@ from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth import authenticate, login
+from django.views.generic import DetailView, ListView
+
 from .forms import LoginForm, RegistrationForm
-from .models import Leader, Payment
-from .models import Staff
+from .models import *
 from django.contrib.auth.models import Group
 
 
@@ -85,3 +86,15 @@ def leader(request):
         person = Leader.objects.get(user=request.user.id)
         return render(request, 'leader.html', {'leader': person})
     return HttpResponseRedirect('/login')
+
+
+# class MeanValue(ListView):
+#     model = Payment
+#     queryset = Payment.objects.all()
+#     template_name = 'staff.html'
+#     context_object_name = ['tip_staff']  # в эту переменную будет помещён результат работы класса
+#
+#     def tip_staff(self, request):
+#         user = Staff.objects.get(user=request.user.id)
+#         tip = Payment.objects.filter(staff=user.id)
+#         return tip
