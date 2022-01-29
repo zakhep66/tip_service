@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect, HttpResponseForbidden
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login
 from django.views.generic import DetailView, ListView
@@ -141,3 +141,19 @@ class AddPaymentView(View):
             return HttpResponseRedirect('/leader')
         context = {'form': form}
         return render(request, 'index.html', context)
+
+
+class AddBranch(View):
+
+    def get(self, request):
+        form = AddBranchForm
+        context = {'form': form}
+        return render(request, 'branch.html', context)
+
+    def post(self, request):
+        form = AddBranchForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        context = {'form': form}
+        return render(request, 'branch.html', context)

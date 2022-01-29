@@ -91,3 +91,9 @@ class PaymentForm(forms.ModelForm):
 	class Meta:
 		model = Payment
 		fields = ['staff', 'sum_tea', 'review', 'rating']
+
+
+class AddBranchForm(forms.ModelForm):
+	class Meta:
+		model = Branch
+		fields = "__all__"
