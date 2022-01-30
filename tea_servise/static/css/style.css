@@ -86,6 +86,13 @@ main{
     border-radius: 12px;
 }
 
+.card_staff_leader{
+    background-color: #978D7F;
+    border: 1px solid #76A34F;
+    border-radius: 12px;
+    color: #E5DFDB;
+}
+
 .statistic_staff{
     background-color: #BBB1A3;
     border: 1px solid #76A34F;
@@ -136,15 +143,22 @@ main{
     font-size: 12px;
     text-align: start;
     border-radius: 16px;
+    overflow: hidden;
 }
-
+.checked {
+    color: orange;
+}
+.star > span {
+    font-size: 16px;
+}
 .date{
     vertical-align: top;
     text-align: end;
 }
 
 .star{
-    vertical-align: end;
+    vertical-align: middle;
+    text-align: center;
     font-size: 22px;
 }
 

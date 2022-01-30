@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from tea_servise.models import Leader
+from tea_servise.models import *
 
 
 class LoginForm(forms.ModelForm):
@@ -65,3 +65,35 @@ class RegistrationForm(forms.ModelForm):
 	class Meta:
 		model = User
 		fields = ['username', 'password', 'confirm_password', 'first_name', 'last_name', 'phone']
+
+
+class PaymentForm(forms.ModelForm):
+	"""Чаевые"""
+
+	def __str__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		self.fields['id_staffs'].label = 'Логин'
+		self.fields['sum_tea'].label = 'Сумма'
+		self.fields['review'].label = 'Отзыв'
+		self.fields['star'].label = 'Оценка'
+
+	def clean(self):
+		id_staffs = self.cleaned_data['id_staffs']
+		sum_tea = self.cleaned_data['sum_tea']
+		review = self.cleaned_data['review']
+		star = self.cleaned_data['star']
+		if not User.objects.filter(id=id_staffs).exists():
+			raise forms.ValidationError(f'Пользователь с айди {id_staffs} в системе не найден.')
+		id_staffs = User.objects.filter(username=id_staffs).first()
+
+		return self.cleaned_data
+
+	class Meta:
+		model = Payment
+		fields = ['staff', 'sum_tea', 'review', 'rating']
+
+
+class AddBranchForm(forms.ModelForm):
+	class Meta:
+		model = Branch
+		fields = "__all__"

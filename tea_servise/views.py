@@ -1,10 +1,10 @@
 from django.http import HttpResponseRedirect, HttpResponseForbidden
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login
 from django.views.generic import DetailView, ListView
 
-from .forms import LoginForm, RegistrationForm
+from .forms import *
 from .models import *
 from django.contrib.auth.models import Group
 
@@ -28,7 +28,8 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                if request.user.groups.filter(name='Staff').exists():  # Если чел принадлежит группе name='название группы'
+                if request.user.groups.filter(
+                        name='Staff').exists():  # Если чел принадлежит группе name='название группы'
                     # будет редирект на страницу, указанную ниже
                     return HttpResponseRedirect('/staff')  # здесь нужно указать страницу на которую будет редирект
                 elif request.user.groups.filter(name='Leader').exists():  # схема таже
@@ -87,17 +88,15 @@ def staff(request):
             if t.sum_tea is not None:
                 count_sum_tea += 1
                 sum_tea += t.sum_tea
-        if count_rating != 0:
+        try:
             average_rating = int(rating / count_rating * 10) / 10
-        else:
-            average_rating = 0
-
-        if count_sum_tea != 0:
             average_sum_tea = int(sum_tea / count_sum_tea * 100) / 100
-        else:
+        except ZeroDivisionError:
+            average_rating = 0
             average_sum_tea = 0
-
-        return render(request, 'staff.html', {'staff': person, 'tips': tips, 'sum': sum, 'average_rating': average_rating, 'average_sum_tea': average_sum_tea})
+        return render(request, 'staff.html',
+                      {'staff': person, 'tips': tips, 'sum': sum, 'average_rating': average_rating,
+                       'average_sum_tea': average_sum_tea})
     return HttpResponseRedirect('/login')
 
 
@@ -117,13 +116,45 @@ def leader(request):
     return HttpResponseRedirect('/login')
 
 
-# class MeanValue(ListView):
-#     model = Payment
-#     queryset = Payment.objects.all()
-#     template_name = 'staff.html'
-#     context_object_name = ['tip_staff']  # в эту переменную будет помещён результат работы класса
-#
-#     def tip_staff(self, request):
-#         user = Staff.objects.get(user=request.user.id)
-#         tip = Payment.objects.filter(staff=user.id)
-#         return tip
+class AddPaymentView(View):
+
+    def get(self, request, *args, **kwargs):
+        form = PaymentForm(request.POST or None)
+        context = {'form': form}
+        return render(request, 'index.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = PaymentForm(request.POST or None)
+        if form.is_valid():
+            new_payment = form.save(commit=False)
+            new_payment.staff = form.cleaned_data['staff']
+            new_payment.sum_tea = form.cleaned_data['sum_tea']
+            new_payment.review = form.cleaned_data['review']
+            new_payment.star = form.cleaned_data['star']
+            new_payment.save()
+            Payment.objects.create(
+                staff=new_payment,
+                sum_tea=form.cleaned_data['sum_tea'],
+                review=form.cleaned_data['review'],
+                star=form.cleaned_data['star']
+            )
+            return HttpResponseRedirect('/leader')
+        context = {'form': form}
+        return render(request, 'index.html', context)
+
+
+class AddBranch(View):
+
+    def get(self, request):
+        form = AddBranchForm
+        context = {'form': form}
+        return render(request, 'branch.html', context)
+
+    def post(self, request):
+        form = AddBranchForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        context = {'form': form}
+        return render(request, 'branch.html', context)
+
