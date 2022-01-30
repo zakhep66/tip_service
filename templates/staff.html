@@ -78,15 +78,19 @@
                 {% for t in tips %}
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
                     <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
-                        <div class="history grid grid-cols-2 md:grid-cols-12 h-28">
-                            <div class="star col-start-1 col-span-3 md:grid-cols-1 ml-16 mt-6">
+                        <div class="history grid grid-cols-2 md:grid-cols-12 h-28 items-center">
+                            <div class="star col-start-1 col-span-3 md:grid-cols-1">
                                 <p class="">{{ t.sum_tea }} р</p>
-                                <p class="">*****</p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
                             </div>
                             <div class="review_blocks col-start-4 col-span-6 md:grid-cols-1">
-                                <p class="review h-10 p-3 mt-9">{{ t.review }}</p>
+                                <p class="review p-3">{{ t.review }}</p>
                             </div>
-                            <div class="date col-start-10 col-span-3 md:grid-cols-1 mt-4 mr-3">
+                            <div class="date col-start-10 col-span-3 md:grid-cols-1 mb-16 mr-3">
                                 <p>{{ t.data }}</p>
                             </div>
                         </div>

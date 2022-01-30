@@ -157,3 +157,4 @@ class AddBranch(View):
             return redirect('index')
         context = {'form': form}
         return render(request, 'branch.html', context)
+
