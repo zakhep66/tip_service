@@ -179,6 +179,10 @@ main{
     font-size: 12px;
     text-align: start;
     border-radius: 16px;
+    overflow: hidden;
+}
+.checked {
+    color: orange;
 }
 
 .staff_money{
