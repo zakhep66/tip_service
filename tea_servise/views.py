@@ -162,6 +162,29 @@ class AddBranch(View):
         return render(request, 'branch.html', context)
 
 
+def editBranch(request, id):
+    error = ''
+    person = Leader.objects.get(user_id=request.user.id)
+    leaders = Leader.objects.all()
+    organizations = Organization.objects.all()
+    branch = Branch.objects.get(id=id)
+    if request.method == 'POST':
+        form = LeaderEditForm(request.POST, instance=leader)
+        if form.is_valid():
+            form.save()
+            return redirect('leader')
+        else:
+            error = 'Форма заполнена некорректно'
+    context = {
+        'leaders': leaders,
+        'error': error,
+        'person': person,
+        'organizations': organizations,
+        'branch': branch
+    }
+    return render(request, 'edit_branch.html', context)
+
+
 def editLeader(request, id):
     error = ''
     leader = Leader.objects.get(id=id, user=request.user.id)

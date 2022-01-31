@@ -1,0 +1,89 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Редактирование филиала
+{% endblock %}
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+    <div class='w-full grid grid-cols-1 md:grid-cols-12 mt-16'>
+        <div class="w-full grid grid-cols-1 col-start-2 col-span-1">
+          <button type="submit" class="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
+            <a href="{% url 'leader' %}">Назад</a>
+          </button>
+        </div>
+      </div>
+        <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-md w-full space-y-8">
+                <div>
+                    <img class="mx-auto h-20 w-auto" src="../media/logo-main.png" alt="Workflow">
+                    <h1 class="mt-6 text-center text-3xl font-extrabold">
+                        Редактирование филиала
+                    </h1>
+                </div>
+                <form class="mt-8 space-y-6" action="" method="POST">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-dismissible alert-danger">{{ form.non_field_errors }}</div>
+                    {% endif %}
+                    {% if error != '' %}
+                        <div class="alert alert-dismissible alert-danger">
+                            <strong>{{ error }}</strong>
+                        </div>
+                    {% endif %}
+                    <div class="rounded-md shadow-sm -space-y-px reg">
+                        <div>
+                            <label for="leader" class="form-label">Руководитель</label>
+                            <select id="leader" name="leader" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm">
+                                {% for leader in leaders %}
+                                    <option {% if leader.id == person.id %} selected {% endif %} value="{{leader.id}}">
+                                        {{ leader.last_name }} {{ leader.first_name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <label for="organization" class="form-label">Организация</label>
+                            <select id="organization" name="organization" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm">
+                                {% for organization in organizations %}
+                                    <option {% if organization.id == branch.organization_id %} selected {% endif %} value="{{organization.id}}">
+                                        {{ organization.legal_name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <label for="branch_name" class="form-label">Название филиала</label>
+                            <input id="branch_name" name="branch_name" type="text" value={{branch.branch_name}} required
+                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
+                                   placeholder="Название филиала">
+                        </div>
+                        <div>
+                            <label for="address" class="form-label">Адрес филиала</label>
+                            <textarea id="address" name="address" type="text" value={{branch.address}} required
+                            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
+                                   placeholder="Адрес филиала"></textarea>
+                        </div>
+                        <br>
+                        <div>
+                            <button type="submit"
+                                    class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
+                          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                 fill="currentColor"
+                                 aria-hidden="true">
+                              <path fill-rule="evenodd"
+                                    d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                          </span>
+                                Добавить
+                            </button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    {% endif %}
+{% endblock %}
