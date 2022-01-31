@@ -126,20 +126,11 @@ class AddPaymentView(View):
     def post(self, request, *args, **kwargs):
         form = PaymentForm(request.POST or None)
         if form.is_valid():
-            new_payment = form.save(commit=False)
-            new_payment.staff = form.cleaned_data['staff']
-            new_payment.sum_tea = form.cleaned_data['sum_tea']
-            new_payment.review = form.cleaned_data['review']
-            new_payment.star = form.cleaned_data['star']
-            new_payment.save()
-            Payment.objects.create(
-                staff=new_payment,
-                sum_tea=form.cleaned_data['sum_tea'],
-                review=form.cleaned_data['review'],
-                star=form.cleaned_data['star']
-            )
-            return HttpResponseRedirect('/leader')
-        context = {'form': form}
+            form.save()
+            return HttpResponseRedirect('/')
+        else:
+            error = str(form.errors)
+        context = {'form': form,  'error': error}
         return render(request, 'index.html', context)
 
 
