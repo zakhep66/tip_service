@@ -18,4 +18,5 @@ urlpatterns = [
     path('registration', views.RegistrationView.as_view(), name="registration"),
     path('add-branch', views.AddBranch.as_view(), name="add_branch"),
     path('editLeader/<int:id>', views.editLeader, name="editLeader"),
+    path('editStaff/<int:id>', views.editStaff, name="editStaff"),
 ]

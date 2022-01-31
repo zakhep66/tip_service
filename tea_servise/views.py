@@ -163,6 +163,18 @@ def editLeader(request, id):
             error = 'Форма заполнена некорректно'
     return render(request, 'editLeader.html', {'leader': leader, 'error': error})
 
+def editStaff(request, id):
+    error = ''
+    staff = Staff.objects.get(id=id)
+    if request.method == 'POST':
+        form = StaffEditForm(request.POST, instance=staff)
+        if form.is_valid():
+            form.save()
+            return redirect('leader')
+        else:
+            error = 'Форма заполнена некорректно'
+    return render(request, 'editStaff.html', {'staff': staff, 'error': error})
+
 
 class AddStaff(View):
 

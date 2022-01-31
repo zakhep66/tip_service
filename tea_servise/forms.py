@@ -124,3 +124,9 @@ class LeaderEditForm(forms.ModelForm):
     class Meta:
         model = Leader
         fields = ["phone", "first_name", "last_name"]
+
+
+class StaffEditForm(forms.ModelForm):
+    class Meta:
+        model = Staff
+        fields = ["first_name", "last_name", "card_number", "avatar"]
