@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Marmelad&family=Seymour+One&display=swap');
+
+
+body{
+    background-color: #F0EDE8;
+}
+
+button{
+    background-color: #BBB1A3;
+    color: #625C60;
+}
+
+button:hover{
+    background-color: #625C60;
+    color: #BBB1A3;
+}
+
+.forgot, .remember-text, h1{
+    color: #625C60;
+}
+
+#login, #password, #first_name, #last_name, #phone, #confirm_password{
+    color: #625C60;
+}
+
+#login, #password, #first_name, #last_name, #phone, #confirm_password:focus{
+    border: 1px solid #BBB1A3;
+}
+
+header{
+    height: 40px;
+}
+
+.in{
+    color: #787774;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.in a{
+    font-size: 18px;
+}
+
+nav{
+    background-color: #DFDCCF;
+    border-bottom: 2px solid #76A34F;
+}
+
+nav .logo_text{
+    font-family: 'Amatic SC', cursive;
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.logo_text_first{
+    color: #76A34F;
+}
+
+.logo_text_second{
+    color: #939598;
+}
+
+.logo_text_third{
+    color: #8F7962;
+}
+
+.line{
+    background-color: #91B56B;
+}
+.data{
+    text-align: end;
+    font-size: 20px;
+    font-family: 'Marmelad', sans-serif;
+}
+
+main{
+    font-family: 'Montserrat', sans-serif;
+    color: #787774;
+}
+
+.card_staff{
+    background-color: #E5DFDB;
+    border: 1px solid #76A34F;
+    border-radius: 12px;
+}
+
+.card_staff_leader{
+    background-color: #978D7F;
+    border: 1px solid #76A34F;
+    border-radius: 12px;
+    color: #E5DFDB;
+}
+
+.statistic_staff{
+    background-color: #BBB1A3;
+    border: 1px solid #76A34F;
+    border-radius: 12px;
+    vertical-align: middle;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    color:#E5DFDB;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.photo_staff{
+    border: 2px solid #76A34F;
+    text-align: end;
+}
+
+.block_photo_staff{
+    vertical-align: middle;
+    text-align: right;
+    margin-right: 0;
+}
+
+.staff_name{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.card_staff p{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.history{
+    background-color: #978D7F;
+    vertical-align: end;
+    color:#E5DFDB;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+}
+
+.review{
+    border-radius: 12px;
+    background-color: #E5DFDB;
+    color: #8F7962;
+    font-size: 12px;
+    text-align: start;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.checked {
+    color: orange;
+}
+.star > span {
+    font-size: 16px;
+}
+.date{
+    vertical-align: top;
+    text-align: end;
+}
+
+.star{
+    vertical-align: middle;
+    text-align: center;
+    font-size: 22px;
+}
+
+.history_light{
+    background-color: #E5DFDB;
+    vertical-align: end;
+    color:#787774;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid #76A34F;
+}
+
+.review_light{
+    border-radius: 12px;
+    background-color: #BBB1A3;
+    color: #E5DFDB;
+    font-size: 12px;
+    text-align: start;
+    border-radius: 16px;
+    overflow: hidden;
+}
+.checked {
+    color: orange;
+}
+
+.staff_money{
+    color:#787774;
+    font-family: 'Marmelad', sans-serif;
+    font-size: 25px;
+}
+
+.my_block img{
+    margin-right: 0;
+}
