@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Редактирование руководителя
+    Редактирование сотрудника
 {% endblock %}
 {% block content %}
 <div class="w-full grid grid-rows-2 grid-flow-col lg:items-center lg:w-auto mt-10">
@@ -40,8 +40,17 @@
                                             <tr>
                                                 <td><label for="photo" class="form-label">Фотография</label></td>
                                                 <td>
-                                                        <input type="file" placeholder="Фотография сотрудника" name="avatar"  value="{{ staff.avatar }}"
-                                                               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm">
+                                                    {% if staff.avatar %}
+                                                    <img src="{{ staff.avatar.url }}" alt="фотография сотрудника" style="max-width: 200px;"><br>
+                                                    <a href="{{ staff.avatar.url }}" download="сотрудник" class="btn btn-secondary btn-sm mt-2">Скачать фотографию</a>
+                                                    <a class="btn btn-primary" href="#" role="button">Удалить</a>
+                                                    {% endif %}
+                                                    {% if staff.avatar == NULL or staff.avatar == '' %}
+                                                    <p>У сотрудника нет фотографии</p>
+                                                        <div class="input-group mb-3">
+                                                            <input type="file" class="form-control" placeholder="Фотография сотрудника" name="avatar" aria-describedby="button-addon1">
+                                                        </div>
+                                                    {% endif %}
                                                     <div class="mb-3">{{ f.errors }}</div>
                                                 </td>
                                             </tr>
