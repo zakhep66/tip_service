@@ -1,8 +1,10 @@
+from django.db import transaction
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import authenticate, login
 from django.views.generic import DetailView, ListView
+import datetime
 
 from .forms import *
 from .models import *
@@ -130,7 +132,7 @@ class AddPaymentView(View):
             return HttpResponseRedirect('/')
         else:
             error = str(form.errors)
-        context = {'form': form,  'error': error}
+        context = {'form': form, 'error': error}
         return render(request, 'index.html', context)
 
 
@@ -149,3 +151,41 @@ class AddBranch(View):
         context = {'form': form}
         return render(request, 'branch.html', context)
 
+
+class AddStaff(View):
+
+    def get(self, request, branch):
+        form = AddStaffForm
+        branch = Branch.objects.get(id=branch)
+        context = {'form': form, 'branch': branch}
+        return render(request, 'staff_add.html', context)
+
+    def post(self, request, branch):
+        form_staff = AddStaffForm(request.POST or None)
+        branch = Branch.objects.get(id=branch)
+        last_id = User.objects.latest('id').id
+        generate_username = 'user' + str(last_id)
+        form_user = UserCreateForm(
+            {'password': request.POST['password'], 'confirm_password': request.POST['confirm_password'],
+             'last_login': str(datetime.datetime.now()), 'username': generate_username,
+             'date_joined': str(datetime.datetime.now()), 'is_active': True})
+
+        if form_user.is_valid() and form_staff.is_valid():
+            with transaction.atomic():
+                user_instance = form_user.save(commit=False)
+                group = Group.objects.get(name='Staff')
+                user_instance.save()
+                user_instance.groups.add(group)
+                user_instance.set_password(form_user.cleaned_data['password'])
+                user_instance.save()
+                staff_instance = form_staff.save(commit=False)
+                staff_instance.user = user_instance
+                staff_instance.id_branch = branch
+                staff_instance.save()
+
+            return redirect('leader')
+        else:
+            error = str(form_user.errors) + str(form_staff.errors)
+
+        context = {'form': form_staff, 'error': error}
+        return render(request, 'staff_add.html', context)

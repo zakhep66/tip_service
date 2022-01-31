@@ -18,7 +18,7 @@
                 <p>{{ branch.address }}</p>
                 <p>Руководитель: {{ branch.leader }}</p>
                 <h5>Сотрудники</h5>
-    {#            <a href="{% url 'add_staff' branch.id %}">Добавить сотрудника</a>#}
+                <a href="{% url 'add_staff' branch.id %}">Добавить сотрудника</a>
                 {% for staff in branch_staff %}
                         {% if staff.id_branch.id == branch.id %}
                             {{ staff.last_name }}
