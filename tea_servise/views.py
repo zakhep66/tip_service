@@ -140,16 +140,27 @@ class AddBranch(View):
 
     def get(self, request):
         form = AddBranchForm
-        context = {'form': form}
+        leaders = Leader.objects.all()
+        organizations = Organization.objects.all()
+        context = {
+            'form': form,
+            'leaders': leaders,
+            'organizations': organizations
+        }
         return render(request, 'branch.html', context)
 
     def post(self, request):
         form = AddBranchForm(request.POST or None)
+        leaders = Leader.objects.all()
         if form.is_valid():
             form.save()
             return redirect('index')
-        context = {'form': form}
+        context = {
+            'form': form,
+            'leaders': leaders
+        }
         return render(request, 'branch.html', context)
+
 
 def editLeader(request, id):
     error = ''
