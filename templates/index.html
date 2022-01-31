@@ -24,54 +24,67 @@
 
         <div id="fullpage">
 
-            <div class="section bg-light-1">
+            <div class="section">
                 <button class="button-login">
                     <a href="{% url 'login' %}" class="text-login">Войти</a>
                     <img src="../media/login.png" class="img-login">
                 </button>
 
-                <img src="../media/logo-main.png" class="img-logo">
-                <img src="../media/giving_hand.png" class="img-giving-hand">
-                <img src="../media/green-tea.png" class="img-green-tea">
-                <div class="text-logo">
-                    <span class="text-logo-first">Дай</span>
-                    <span class="text-logo-second">на</span>
-                    <span class="text-logo-third">Чай</span>
+                <div class="logo-and-hand">
+                    <img src="../media/logo-main.png" class="img-logo">
+                    <img src="../media/giving_hand.png" class="img-giving-hand">
                 </div>
 
-                <span class="text-tips-service">Сервис перевода чаевых</span>
-                <img src="../media/tips-service.png" class="img-tips-service">
+                <div class="name-and-leaf">
+                    <img src="../media/green-tea.png" class="img-green-tea">
+                    <div class="text-logo">
+                        <span class="text-logo-el">Дай</span>
+                        <span class="text-logo-el">на</span>
+                        <span class="text-logo-el">Чай</span>
+                    </div>
+                </div>
+
+                <div class="tips-service-group">
+                    <span class="text-tips-service">Сервис перевода чаевых</span>
+                    <img src="../media/tips-service.png" class="img-tips-service">
+                </div>
 
                 <button class="button-transfer-money">
-                    <a href="#transfer-money" class="text-transfer-money">Перевести</a>
+                    <a href="#block4" class="text-transfer-money">Перевести</a>
                     <img src="../media/coins.png" class="img-transfer-money">
                 </button>
 
             </div>
 
-            <div class="section bg-menu-color">
+            <div class="section">
                 <h1 class="second">Наши преимущества:</h1>
 
                 <div class="parent">
                     <div class="column">
-                        <img src="../media/cool.png" class="img-column">
-                        <span class="text-column">Мы классные</span>
+                        <figure>
+                            <img src="../media/cool.png" class="img-column">
+                            <figcaption><p class="text-column">Мы классные</p></figcaption>
+                        </figure>
                     </div>
 
                     <div class="column">
-                        <img src="../media/open-source.png" class="img-column">
-                        <span class="text-column">Мы open-source проект, а значит другие разработчики могут помогать проекту развиваться</span>
+                        <figure>
+                            <img src="../media/open-source.png" class="img-column">
+                            <figcaption><p class="text-column">Мы open-source проект, а значит другие разработчики могут помогать проекту развиваться</p></figcaption>
+                        </figure>
                     </div>
 
                     <div class="column">
-                        <img src="../media/shield.png" class="img-column">
-                        <span class="text-column">У нас безопасные переводы без комиссии (деньги нигде не хранятся, а переходят сразу от вас к сотруднику)</span>
+                        <figure>
+                            <img src="../media/shield.png" class="img-column">
+                            <figcaption><p class="text-column">У нас безопасные переводы без комиссии (деньги нигде не хранятся, а переходят сразу от вас к сотруднику)</p></figcaption>
+                        </figure>
                     </div>
                 </div>
 
             </div>
 
-            <div class="section bg-light-2">
+            <div class="section">
                 <h1>Подключить сотрудников вашего заведения можно всего в пару кликов</h1>
                 <div class="line"></div>
                 <button class="button-registration">
@@ -80,7 +93,7 @@
                 </button>
             </div>
 
-            <div class="section bg-light-1-last" id="transfer-money">
+            <div class="section">
                 <h1 class="last">Перевод чаевых сотруднику</h1>
                 <img src="../media/qr-code.png" class="img-qr">
                 <form method="POST" action="index.html">
@@ -93,9 +106,9 @@
                     <label for="rating">Оценка:</label>
                     <input id="rating" placeholder="оценка от 1 до 5...">
                     <button type="submit" class="button-form">
-                        <span class="text-logo-first">Дать</span>
-                        <span class="text-logo-second">на</span>
-                        <span class="text-logo-third">Чай</span>
+                        <span class="text-logo-el">Дать</span>
+                        <span class="text-logo-el">на</span>
+                        <span class="text-logo-el">Чай</span>
                     </button>
                 </form>
             </div>
@@ -123,14 +136,21 @@
 
             // fullpage scroll
             new fullpage('#fullpage', {
-                //options here
-                autoScrolling:true,
-                scrollHorizontally: true,
+                autoScrolling: true,
                 loopBottom: true,
                 loopTop: false,
+                lockAnchors: false,
+                animateAnchor: true,
+                anchors:['block1', 'block2', 'block3', 'block4']
             });
 
             fullpage_api.setAllowScrolling(true);
+
+            function jump() {
+                let top = document.getElementById('transfer-money').offsetTop; //Getting Y of target element
+                window.scrollTo(0, top);                        //Go there directly or some transition
+                // window.scrollTo(0,document.body.scrollHeight);
+            }
         </script>
 
         </body>
