@@ -81,11 +81,13 @@
                         <div class="history grid grid-cols-2 md:grid-cols-12 h-28 items-center">
                             <div class="star col-start-1 col-span-3 md:grid-cols-1">
                                 <p class="">{{ t.sum_tea }} р</p>
+                                {% if t.rating < 6 %}
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
+                                {%endif%}
                             </div>
                             <div class="review_blocks col-start-4 col-span-6 md:grid-cols-1">
                                 <p class="review p-3">{{ t.review }}</p>
