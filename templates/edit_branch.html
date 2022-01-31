@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Добавление сотрудника
+    Редактирование филиала
 {% endblock %}
 {% block content %}
 
@@ -19,7 +19,7 @@
                 <div>
                     <img class="mx-auto h-20 w-auto" src="../media/logo-main.png" alt="Workflow">
                     <h1 class="mt-6 text-center text-3xl font-extrabold">
-                        Добавление филиала
+                        Редактирование филиала
                     </h1>
                 </div>
                 <form class="mt-8 space-y-6" action="" method="POST">
@@ -37,7 +37,7 @@
                             <label for="leader" class="form-label">Руководитель</label>
                             <select id="leader" name="leader" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm">
                                 {% for leader in leaders %}
-                                    <option value="{{leader.id}}">
+                                    <option {% if leader.id == person.id %} selected {% endif %} value="{{leader.id}}">
                                         {{ leader.last_name }} {{ leader.first_name }}
                                     </option>
                                 {% endfor %}
@@ -47,7 +47,7 @@
                             <label for="organization" class="form-label">Организация</label>
                             <select id="organization" name="organization" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm">
                                 {% for organization in organizations %}
-                                    <option value="{{organization.id}}">
+                                    <option {% if organization.id == branch.organization_id %} selected {% endif %} value="{{organization.id}}">
                                         {{ organization.legal_name }}
                                     </option>
                                 {% endfor %}
@@ -55,15 +55,15 @@
                         </div>
                         <div>
                             <label for="branch_name" class="form-label">Название филиала</label>
-                            <input id="branch_name" name="branch_name" type="text" required
+                            <textarea id="branch_name" name="branch_name" type="text" required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                   placeholder="Название филиала">
+                                   placeholder="Название филиала">{{branch.branch_name}}</textarea>
                         </div>
                         <div>
                             <label for="address" class="form-label">Адрес филиала</label>
                             <textarea id="address" name="address" type="text" required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                   placeholder="Адрес филиала"></textarea>
+                                   placeholder="Адрес филиала">{{branch.address}}</textarea>
                         </div>
                         <br>
                         <div>
@@ -78,7 +78,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                           </span>
-                                Добавить
+                                Сохранить
                             </button>
                         </div>
                 </form>

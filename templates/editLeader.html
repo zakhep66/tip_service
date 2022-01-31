@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Редактирование руководителя
+{% endblock %}
+{% block content %}
+    <div class="w-full grid grid-rows-2 grid-flow-col lg:items-center lg:w-auto mt-10">
+        <div class="w-full grid grid-rows-2 grid-flow-col lg:items-center lg:w-auto mt-10">
+            <div>
+                <button type="submit" class="group relative flex justify-center py-2 px-4 ml-3 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
+                    <a href="{% url 'leader' %}">Назад</a>
+                  </button>
+                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
+                    <div class="data col-start-3 col-span-2 md:grid-cols-1 ml-1">
+                        <span class="data">Ваши данные</span>
+                    </div>
+                    <div class="col-start-5 col-span-5 md:grid-cols-1">
+                        <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
+                    </div>
+                </div>
+                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
+                    <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
+                        <div class="card_staff p-6">
+                            <form method="post">
+                                {% csrf_token %}
+                                <table class="table-auto">
+                                    <tbody>
+                                    <tr>
+                                        <td><label for="first_name" class="form-label">Имя и отчество</label></td>
+                                        <td><input type="text" name="first_name" id="first_name"
+                                                   class="mb-3 form-control p-2 rounded" required
+                                                   value="{{ leader.first_name }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="last_name" class="form-label">Фамилия</label></td>
+                                        <td><input type="text" name="last_name" id="last_name" required
+                                                   class="mb-3 form-control p-2 rounded" value="{{ leader.last_name }}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="phone" class="form-label">Телефон</label></td>
+                                        <script src="js/jquery.maskedinput.min.js"></script>
+                                        <td><input type="text" name="phone" id="phone" type="tel" required
+                                                   class="mb-3 form-control p-2 rounded" value="{{ leader.phone }}">
+                                        </td>
+                                        <script>
+                                            $("#phone").inputmask("+7(999)999-99-99");
+                                        </script>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <button type="submit" class="mt-2 mx-2 py-2 px-4 rounded">Изменить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
