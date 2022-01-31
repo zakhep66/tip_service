@@ -19,16 +19,19 @@
                 <p>Руководитель: {{ branch.leader }}</p>
                 <h5>Сотрудники</h5>
                 <a href="{% url 'add_staff' branch.id %}">Добавить сотрудника</a>
+                <br>
                 {% for staff in branch_staff %}
                         {% if staff.id_branch.id == branch.id %}
+                        <a href="/editStaff/{{ staff.id }}">
                             {{ staff.last_name }}
                             Номер карты: {{ staff.card_number }}
                             Логин: {{ staff.user }}
+                        </a>
                         {% endif %}
                 {% endfor %}
             {% endfor %}
             <br>
-            <a  href="/editLeader/{{ leader.id }}" class="text-transfer-money">РЕДАКТИРОВАТЬ</a>
+            <a href="/editLeader/{{ leader.id }}" class="text-transfer-money">РЕДАКТИРОВАТЬ</a>
         </div>
     {% endif %}
 {% endblock %}
