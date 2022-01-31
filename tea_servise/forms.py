@@ -99,7 +99,7 @@ class AddStaffForm(forms.ModelForm):
 
     class Meta:
         model = Staff
-        fields = ['first_name', 'last_name', 'card_number']
+        fields = ['first_name', 'last_name', 'card_number', 'avatar']
 
 
 class UserCreateForm(forms.ModelForm):

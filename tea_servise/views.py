@@ -169,7 +169,7 @@ def editBranch(request, id):
     organizations = Organization.objects.all()
     branch = Branch.objects.get(id=id)
     if request.method == 'POST':
-        form = LeaderEditForm(request.POST, instance=leader)
+        form = LeaderEditForm(request.POST, instance=branch)
         if form.is_valid():
             form.save()
             return redirect('leader')
@@ -197,6 +197,7 @@ def editLeader(request, id):
             error = 'Форма заполнена некорректно'
     return render(request, 'editLeader.html', {'leader': leader, 'error': error})
 
+
 def editStaff(request, id):
     error = ''
     staff = Staff.objects.get(id=id)
@@ -219,7 +220,7 @@ class AddStaff(View):
         return render(request, 'staff_add.html', context)
 
     def post(self, request, branch):
-        form_staff = AddStaffForm(request.POST or None)
+        form_staff = AddStaffForm(request.POST, request.FILES or None)
         branch = Branch.objects.get(id=branch)
         last_id = User.objects.latest('id').id
         generate_username = 'user' + str(last_id)

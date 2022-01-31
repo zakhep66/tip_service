@@ -55,15 +55,15 @@
                         </div>
                         <div>
                             <label for="branch_name" class="form-label">Название филиала</label>
-                            <input id="branch_name" name="branch_name" type="text" value={{branch.branch_name}} required
+                            <textarea id="branch_name" name="branch_name" type="text" required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                   placeholder="Название филиала">
+                                   placeholder="Название филиала">{{branch.branch_name}}</textarea>
                         </div>
                         <div>
                             <label for="address" class="form-label">Адрес филиала</label>
-                            <textarea id="address" name="address" type="text" value={{branch.address}} required
+                            <textarea id="address" name="address" type="text" required
                             class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                   placeholder="Адрес филиала"></textarea>
+                                   placeholder="Адрес филиала">{{branch.address}}</textarea>
                         </div>
                         <br>
                         <div>
@@ -78,7 +78,7 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                           </span>
-                                Добавить
+                                Сохранить
                             </button>
                         </div>
                 </form>
