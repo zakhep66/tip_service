@@ -1,137 +1,146 @@
 {% load static %}
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>
-            {% block title %}
-                Главная
-            {% endblock %}
-        </title>
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Marmelad&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/fullpage.css' %}">
-        <script type="text/javascript" src="{% static 'css/fullpage.js' %}"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+        {% block title %}
+            Главная
+        {% endblock %}
+    </title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Marmelad&family=Montserrat:wght@400;500;600;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fullpage.css' %}">
+    <script type="text/javascript" src="{% static 'css/fullpage.js' %}"></script>
+</head>
 
-    <body>
+<body>
 
-        <div id="fullpage">
+<div id="fullpage">
 
-            <div class="section bg-light-1">
-                <button class="button-login">
-                    <a href="{% url 'login' %}" class="text-login">Войти</a>
-                    <img src="../media/login.png" class="img-login">
-                </button>
+    <div class="section bg-light-1">
+        <button class="button-login">
+            <a href="{% url 'login' %}" class="text-login">Войти</a>
+            <img src="../media/login.png" class="img-login">
+        </button>
 
-                <img src="../media/logo-main.png" class="img-logo">
-                <img src="../media/giving_hand.png" class="img-giving-hand">
-                <img src="../media/green-tea.png" class="img-green-tea">
-                <div class="text-logo">
-                    <span class="text-logo-first">Дай</span>
-                    <span class="text-logo-second">на</span>
-                    <span class="text-logo-third">Чай</span>
-                </div>
-
-                <span class="text-tips-service">Сервис перевода чаевых</span>
-                <img src="../media/tips-service.png" class="img-tips-service">
-
-                <button class="button-transfer-money">
-                    <a href="#transfer-money" class="text-transfer-money">Перевести</a>
-                    <img src="../media/coins.png" class="img-transfer-money">
-                </button>
-
-            </div>
-
-            <div class="section bg-menu-color">
-                <h1 class="second">Наши преимущества:</h1>
-
-                <div class="parent">
-                    <div class="column">
-                        <img src="../media/cool.png" class="img-column">
-                        <span class="text-column">Мы классные</span>
-                    </div>
-
-                    <div class="column">
-                        <img src="../media/open-source.png" class="img-column">
-                        <span class="text-column">Мы open-source проект, а значит другие разработчики могут помогать проекту развиваться</span>
-                    </div>
-
-                    <div class="column">
-                        <img src="../media/shield.png" class="img-column">
-                        <span class="text-column">У нас безопасные переводы без комиссии (деньги нигде не хранятся, а переходят сразу от вас к сотруднику)</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="section bg-light-2">
-                <h1>Подключить сотрудников вашего заведения можно всего в пару кликов</h1>
-                <div class="line"></div>
-                <button class="button-registration">
-                    <a href="{% url 'registration' %}" class="text-registration">Подключить</a>
-                    <img src="../media/people.png" class="img-registration">
-                </button>
-            </div>
-
-            <div class="section bg-light-1-last" id="transfer-money">
-                <h1 class="last">Перевод чаевых сотруднику</h1>
-                <img src="../media/qr-code.png" class="img-qr">
-                <form method="POST" action="index.html">
-                    <label for="staff">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label>
-                    <input id="staff" placeholder="id сотрудника..." required>
-                    <label for="sum_tea">Введите сумму чаевых:</label>
-                    <input id="sum_tea" placeholder="cумма..." required>
-                    <label for="review">Отзыв на сотрудника:</label>
-                    <input id="review" placeholder="комментарий...">
-                    <label for="rating">Оценка:</label>
-                    <input id="rating" placeholder="оценка от 1 до 5...">
-                    <button type="submit" class="button-form">
-                        <span class="text-logo-first">Дать</span>
-                        <span class="text-logo-second">на</span>
-                        <span class="text-logo-third">Чай</span>
-                    </button>
-                </form>
-            </div>
-
+        <img src="../media/logo-main.png" class="img-logo">
+        <img src="../media/giving_hand.png" class="img-giving-hand">
+        <img src="../media/green-tea.png" class="img-green-tea">
+        <div class="text-logo">
+            <span class="text-logo-first">Дай</span>
+            <span class="text-logo-second">на</span>
+            <span class="text-logo-third">Чай</span>
         </div>
 
-        <script>
-            // toTopButton
-            var mybutton = document.getElementById("button-up");
+        <span class="text-tips-service">Сервис перевода чаевых</span>
+        <img src="../media/tips-service.png" class="img-tips-service">
 
-            window.onscroll = function() {scrollFunction()};
+        <button class="button-transfer-money">
+            <a href="#transfer-money" class="text-transfer-money">Перевести</a>
+            <img src="../media/coins.png" class="img-transfer-money">
+        </button>
 
-            function scrollFunction() {
-                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-                    mybutton.style.display = "block";
-                } else {
-                    mybutton.style.display = "none";
-                }
-            }
+    </div>
 
-            function topFunction() {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-            }
+    <div class="section bg-menu-color">
+        <h1 class="second">Наши преимущества:</h1>
 
-            // fullpage scroll
-            new fullpage('#fullpage', {
-                //options here
-                autoScrolling:true,
-                scrollHorizontally: true,
-                loopBottom: true,
-                loopTop: false,
-            });
+        <div class="parent">
+            <div class="column">
+                <img src="../media/cool.png" class="img-column">
+                <span class="text-column">Мы классные</span>
+            </div>
 
-            fullpage_api.setAllowScrolling(true);
-        </script>
+            <div class="column">
+                <img src="../media/open-source.png" class="img-column">
+                <span class="text-column">Мы open-source проект, а значит другие разработчики могут помогать проекту развиваться</span>
+            </div>
 
-        </body>
+            <div class="column">
+                <img src="../media/shield.png" class="img-column">
+                <span class="text-column">У нас безопасные переводы без комиссии (деньги нигде не хранятся, а переходят сразу от вас к сотруднику)</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section bg-light-2">
+        <h1>Подключить сотрудников вашего заведения можно всего в пару кликов</h1>
+        <div class="line"></div>
+        <button class="button-registration">
+            <a href="{% url 'registration' %}" class="text-registration">Подключить</a>
+            <img src="../media/people.png" class="img-registration">
+        </button>
+    </div>
+
+    <div class="section bg-light-1-last" id="transfer-money">
+        <h1 class="last">Перевод чаевых сотруднику</h1>
+        <img src="../media/qr-code.png" class="img-qr">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% if error != '' %}
+            <div class="alert alert-dismissible alert-danger">
+                <strong>{{ error }}</strong>
+            </div>
+            {% endif %}
+            <label for="staff">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label>
+            <input id="staff" name="staff" type="number" placeholder="id сотрудника..." required>
+            <label for="sum_tea">Введите сумму чаевых:</label>
+            <input id="sum_tea" name="sum_tea" type="number" placeholder="cумма..." required>
+            <label for="review">Отзыв на сотрудника:</label>
+            <input id="review" name="review" placeholder="комментарий...">
+            <label for="rating">Оценка:</label>
+            <input id="rating" name="rating" type="number" min="1" max="5" step="1" placeholder="оценка от 1 до 5...">
+            <button type="submit" class="button-form">
+                <span class="text-logo-first">Дать</span>
+                <span class="text-logo-second">на</span>
+                <span class="text-logo-third">Чай</span>
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    // toTopButton
+    var mybutton = document.getElementById("button-up");
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    // fullpage scroll
+    new fullpage('#fullpage', {
+        //options here
+        autoScrolling: true,
+        scrollHorizontally: true,
+        loopBottom: true,
+        loopTop: false,
+    });
+
+    fullpage_api.setAllowScrolling(true);
+</script>
+
+</body>
 </html>
