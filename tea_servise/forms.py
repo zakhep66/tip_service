@@ -120,7 +120,7 @@ class UserCreateForm(forms.ModelForm):
         fields = ['password', 'confirm_password', 'last_login', 'username', 'date_joined', 'is_active']
 
 
-class LeaderCreateForm(forms.ModelForm):
+class LeaderEditForm(forms.ModelForm):
     class Meta:
         model = Leader
-        fields = ["user", "phone", "first_name", "last_name"]
+        fields = ["phone", "first_name", "last_name"]

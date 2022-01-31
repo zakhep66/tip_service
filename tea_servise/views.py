@@ -155,13 +155,14 @@ def editLeader(request, id):
     error = ''
     leader = Leader.objects.get(id=id, user=request.user.id)
     if request.method == 'POST':
-        form = LeaderCreateForm(request.POST, instance=leader)
+        form = LeaderEditForm(request.POST, instance=leader)
         if form.is_valid():
             form.save()
             return redirect('leader')
         else:
             error = 'Форма заполнена некорректно'
     return render(request, 'editLeader.html', {'leader': leader, 'error': error})
+
 
 class AddStaff(View):
 
