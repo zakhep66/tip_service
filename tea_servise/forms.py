@@ -1,3 +1,7 @@
+from dataclasses import field, fields
+from pyexpat import model
+from re import L
+from statistics import mode
 from django import forms
 from django.contrib.auth.models import User
 
@@ -129,3 +133,8 @@ class AddBranchForm(forms.ModelForm):
 	class Meta:
 		model = Branch
 		fields = "__all__"
+
+class LeaderCreateForm(forms.ModelForm):
+	class Meta:
+		model = Leader
+		fields = ["user", "phone", "first_name", "last_name"]

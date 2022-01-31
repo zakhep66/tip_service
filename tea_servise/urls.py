@@ -15,5 +15,6 @@ urlpatterns = [
     path('leader', views.leader, name="leader"),
     # path('add_staff/<int:pk>/', views.add_staff, name="add_staff"),
     path('registration', views.RegistrationView.as_view(), name="registration"),
-    path('add-branch', views.AddBranch.as_view(), name="add_branch")
+    path('add-branch', views.AddBranch.as_view(), name="add_branch"),
+    path('editLeader/<int:id>', views.editLeader, name="editLeader"),
 ]
