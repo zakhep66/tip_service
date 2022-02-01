@@ -96,19 +96,29 @@
             <div class="section">
                 <h1 class="last">Перевод чаевых сотруднику</h1>
                 <img src="../media/qr-code.png" class="img-qr">
-                <form method="POST" action="index.html">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {% if error != '' %}
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Внимание!</strong>
+                        <span class="block sm:inline">{{ error }}</span>
+                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                          <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                        </span>
+                    </div>
+                    {% endif %}
                     <label for="staff">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label>
-                    <input id="staff" placeholder="id сотрудника..." required>
+                    <input id="staff" name="staff" type="number" placeholder="id сотрудника..." required>
                     <label for="sum_tea">Введите сумму чаевых:</label>
-                    <input id="sum_tea" placeholder="cумма..." required>
+                    <input id="sum_tea" name="sum_tea" type="number" placeholder="cумма..." required>
                     <label for="review">Отзыв на сотрудника:</label>
-                    <input id="review" placeholder="комментарий...">
+                    <input id="review" name="review" placeholder="комментарий...">
                     <label for="rating">Оценка:</label>
-                    <input id="rating" placeholder="оценка от 1 до 5...">
+                    <input id="rating" name="rating" type="number" min="1" max="5" step="1" placeholder="оценка от 1 до 5...">
                     <button type="submit" class="button-form">
-                        <span class="text-logo-el">Дать</span>
-                        <span class="text-logo-el">на</span>
-                        <span class="text-logo-el">Чай</span>
+                        <span class="text-logo-first">Дать</span>
+                        <span class="text-logo-second">на</span>
+                        <span class="text-logo-third">Чай</span>
                     </button>
                 </form>
             </div>

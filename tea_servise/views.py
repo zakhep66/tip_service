@@ -168,8 +168,10 @@ def editBranch(request, id):
     leaders = Leader.objects.all()
     organizations = Organization.objects.all()
     branch = Branch.objects.get(id=id)
+    branch_name = branch.branch_name
+    address = branch.address
     if request.method == 'POST':
-        form = LeaderEditForm(request.POST, instance=branch)
+        form = AddBranchForm(request.POST, instance=branch)
         if form.is_valid():
             form.save()
             return redirect('leader')
@@ -180,7 +182,9 @@ def editBranch(request, id):
         'error': error,
         'person': person,
         'organizations': organizations,
-        'branch': branch
+        'branch': branch,
+        'branch_name': branch_name,
+        'address': address
     }
     return render(request, 'edit_branch.html', context)
 
