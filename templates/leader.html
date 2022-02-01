@@ -12,17 +12,18 @@
             {{ request.user.username }}
 
             <h3>Филиалы</h3>
-    {#        <a href="{% url 'add_branch' %}">Добавить филиал</a>#}
+            <a href="{% url 'add_branch' %}">Добавить филиал</a>
             {% for branch in branches %}
                 <h5>{{ branch.branch_name }}</h5>
                 <p>{{ branch.address }}</p>
                 <p>Руководитель: {{ branch.leader }}</p>
+                <p><a href="{% url 'edit_branch' branch.id%}">Редактировать филиал</a></p>
                 <h5>Сотрудники</h5>
                 <a href="{% url 'add_staff' branch.id %}">Добавить сотрудника</a>
                 <br>
                 {% for staff in branch_staff %}
                         {% if staff.id_branch.id == branch.id %}
-                        <a href="/editStaff/{{ staff.id }}">
+                        <a href="{% url 'edit_staff' staff.id %}">
                             {{ staff.last_name }}
                             Номер карты: {{ staff.card_number }}
                             Логин: {{ staff.user }}

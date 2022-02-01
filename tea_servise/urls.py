@@ -19,6 +19,6 @@ urlpatterns = [
     path('add-branch', views.AddBranch.as_view(), name="add_branch"),
     path('editLeader/<int:id>', views.editLeader, name="editLeader"),
     path('editBranch/<int:id>', views.editBranch, name="edit_branch"),
-    path('editStaff/<int:id>', views.editStaff, name="editStaff"),
+    path('editStaff/<int:id>', views.editStaff, name="edit_staff"),
 
 ]
