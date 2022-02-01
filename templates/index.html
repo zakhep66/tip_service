@@ -103,8 +103,8 @@
             {% csrf_token %}
             {% if error != null %}
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                    <strong class="font-bold">Внимание!</strong>
-                    <span class="block sm:inline">{{ error }}</span>
+                    <strong class="font-bold">Внимание!</strong><br>
+                    <span class="block sm:inline">Сотрудник с таким ID не был найден</span>
                     <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
                           <svg class="fill-current h-6 w-6 text-red-500" role="button"
                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path
@@ -112,14 +112,14 @@
                         </span>
                 </div>
             {% endif %}
-            <label for="staff">Введите id сотрудника, указанный на чеке рядом с QR-кодом:</label>
-            <input id="staff" name="staff" type="number" placeholder="id сотрудника..." required>
+            <label for="staff">Введите ID сотрудника, указанный на чеке рядом с QR-кодом:</label>
+            <input id="staff" name="staff" type="number" placeholder="ID сотрудника..." required>
             <label for="sum_tea">Введите сумму чаевых:</label>
-            <input id="sum_tea" name="sum_tea" type="number" placeholder="cумма..." required>
+            <input id="sum_tea" name="sum_tea" type="number" placeholder="cумма..." required min="1">
             <label for="review">Отзыв на сотрудника:</label>
-            <input id="review" name="review" placeholder="комментарий...">
+            <input id="review" name="review" placeholder="комментарий..." required>
             <label for="rating">Оценка:</label>
-            <input id="rating" name="rating" type="number" min="1" max="5" step="1" placeholder="оценка от 1 до 5...">
+            <input id="rating" name="rating" type="number" min="1" max="5" step="1" placeholder="оценка от 1 до 5..." required>
             <button type="submit" class="button-form">
                 <span class="text-logo-first">Дать</span>
                 <span class="text-logo-second">на</span>
