@@ -76,7 +76,7 @@ class PaymentForm(forms.ModelForm):
 
     def __str__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['staff'].label = 'Логин'
+        self.fields['staff'].label = 'id сотрудника'
         self.fields['sum_tea'].label = 'Сумма'
         self.fields['review'].label = 'Отзыв'
         self.fields['rating'].label = 'Оценка'
