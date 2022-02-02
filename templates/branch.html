@@ -35,17 +35,17 @@
                     <div class="rounded-md shadow-sm -space-y-px reg">
                         <div>
                             <label for="leader" class="form-label">Руководитель</label>
-                            <select id="leader" name="leader" required
+                            <select id="leader" required disabled
                                     class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm">
                                 {% for leader in leaders %}
                                     <option value="{{ leader.id }}"
-                                            {% if leader.user.id == request.user.id %}
-                                            selected{% endif %} disabled>
+                                            {% if leader.id == person.id %}
+                                            selected{% endif %}>
                                         {{ leader.last_name }} {{ leader.first_name }}
-
                                     </option>
                                 {% endfor %}
                             </select>
+                            <input type="hidden" name="leader" value="{{ person.id }}">
                         </div>
                         <div>
                             <label for="organization" class="form-label">Организация</label>

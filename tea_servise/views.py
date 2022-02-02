@@ -142,9 +142,11 @@ class AddBranch(View):
     def get(self, request):
         error = ''
         leaders = Leader.objects.all()
+        person = Leader.objects.get(user_id=request.user.id)
         context = {
             'leaders': leaders,
-            'error': error
+            'error': error,
+            'person': person
         }
         return render(request, 'branch.html', context)
 
@@ -152,6 +154,7 @@ class AddBranch(View):
         error = ''
         form = AddBranchForm(request.POST or None)
         leaders = Leader.objects.all()
+        person = Leader.objects.get(user_id=request.user.id)
         org = request.POST['organization']
         if form.is_valid():
             instance = form.save(commit=False)
@@ -167,7 +170,8 @@ class AddBranch(View):
             error = str(form.errors)
         context = {
             'leaders': leaders,
-            'error': error
+            'error': error,
+            'person': person
         }
         return render(request, 'branch.html', context)
 
