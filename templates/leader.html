@@ -16,7 +16,7 @@
                     </div>
                     <a href="/editLeader/{{ leader.id }}">
                         <div class="data col-start-9 col-span-2 md:grid-cols-1 ml-1 round">
-                            <img src="../media/edit.png" class="img-edit">
+                            <img src="../media/edit.png" class="img-edit" alt="редактировать данные руководителя">
                         </div>
                     </a>
                 </div>
@@ -36,90 +36,89 @@
 
 
 
+        <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
+            <div class="data col-start-3 col-span-2 md:grid-cols-1 ml-5">
+                <span class="data">Филиалы</span>
+            </div>
+            <div class="col-start-5 col-span-5 md:grid-cols-1">
+                <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
+            </div>
+        </div>
         <div>
-            <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
-                <div class="data col-start-3 col-span-2 md:grid-cols-1 ml-5">
-                    <span class="data">Филиалы</span>
+            <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-10'
+                 style="margin-bottom: 10px; margin-top: -10px;">
+                <div class="data col-start-4 col-span-2 md:grid-cols-1 ml-1">
+                    <img src="../media/plus-img.png" class="img-add" alt="добавить филиал">
                 </div>
-                <div class="col-start-5 col-span-5 md:grid-cols-1">
-                    <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
-                </div>
-            </div>
-            <div>
-                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-10'  style="margin-bottom: 10px; margin-top: -10px;">
-                    <div class="data col-start-4 col-span-2 md:grid-cols-1 ml-1">
-                        <img src="../media/plus-img.png" class="img-add">
+                <a href="{% url 'add_branch' %}">
+                    <div class="col-start-3 col-span-2 md:grid-cols-1" style="width: 300px; margin-left: -210px">
+                        <span>Добавить филиал</span>
                     </div>
-                    <a href="{% url 'add_branch' %}">
-                        <div class="col-start-3 col-span-2 md:grid-cols-1" style="width: 300px; margin-left: -210px">
-                            <span>Добавить филиал</span>
-                        </div>
-                    </a>
-                </div>
+                </a>
             </div>
-            {% for branch in branches %}
-                <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
-                    <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
-                        <div class="branch pt-6 pl-6 pr-6 grid md:grid-cols-12 items-center" style="padding-bottom: -30px">
+        </div>
+        {% for branch in branches %}
+            <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
+                <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
+                    <div class="branch pt-6 pl-6 pr-6 grid md:grid-cols-12 items-center" style="padding-bottom: -30px">
 
-                            <div class="col-start-1 col-span-9 items-center md:grid-cols-1 pl-7" >
-<!--                                style="margin-bottom: -50px"-->
-                                <h2 class="staff_name mb-1">{{ branch.branch_name }} | ООО "Шоколадница"</h2>
-                                <p class="mb-1">{{ branch.address }}</p>
-                                <p class="mb-1">Руководитель: {{ branch.leader }}</p>
-                                <h5 class="staff-text">Сотрудники</h5>
-                                <a href="{% url 'add_staff' branch.id %}"  style="margin-bottom: 100px">
-                                    <div class="data col-start-4 col-span-2 md:grid-cols-1 ml-1 mt-10" style="margin-top: 10px">
-                                        <img src="../media/plus-light.png" class="img-add">
-                                    </div>
-                                    <span class="add-staff">Добавить сотрудника</span>
-                                </a>
-
-                            </div>
-                            {% for staff in branch_staff %}
-                                <div class="staff col-start-3 col-end-12 mb-5 p-6">
-                                    {% if staff.id_branch.id == branch.id %}
-                                        <a href="/editStaff/{{ staff.id }}">
-                                            <img src="../media/edit.png" class="edit-staff">
-                                        </a>
-                                        <h2 class="staff_name mb-1">{{ staff.last_name }}</h2>
-                                        <p class="mb-1">Номер карты: {{ staff.card_number }}</p>
-                                        <p class="mb-1">Логин: {{ staff.user }}</p>
-                                    {% endif %}
+                        <div class="col-start-1 col-span-9 items-center md:grid-cols-1 pl-7">
+                            <!--                                style="margin-bottom: -50px"-->
+                            <h2 class="staff_name mb-1">{{ branch.branch_name }} | {{ branch.organization }}</h2>
+                            <p class="mb-1">{{ branch.address }}</p>
+                            <h5 class="staff-text">Сотрудники</h5>
+                            <a href="{% url 'add_staff' branch.id %}" style="margin-bottom: 100px">
+                                <div class="data col-start-4 col-span-2 md:grid-cols-1 ml-1 mt-10"
+                                     style="margin-top: 10px">
+                                    <img src="../media/plus-light.png" class="img-add" alt="добавить сотрудника">
                                 </div>
-                            {% endfor %}
+                                <span class="add-staff">Добавить сотрудника</span>
+                            </a>
 
                         </div>
+                        {% for staff in branch_staff %}
+                            {% if staff.id_branch.id == branch.id %}
+                                <div class="staff col-start-3 col-end-12 mb-5 p-6">
+                                    <a href="/editStaff/{{ staff.id }}">
+                                        <img src="../media/edit.png" class="edit-staff" alt="редактировать сотрудника">
+                                    </a>
+                                    <h2 class="staff_name mb-1">{{ staff.last_name }} {{ staff.first_name }}</h2>
+                                    <p class="mb-1">Номер карты: {{ staff.card_number }}</p>
+                                    <p class="mb-1">Логин: {{ staff.user }}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
+            </div>
             <br>
-            {% endfor %}
+        {% endfor %}
 
 
 
 
 
-<!--        <div>-->
+        <!--        <div>-->
 
-<!--            {% for branch in branches %}-->
-<!--&lt;!&ndash;                <h5>{{ branch.branch_name }}</h5>&ndash;&gt;-->
-<!--&lt;!&ndash;                <p>{{ branch.address }}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                <p>Руководитель: {{ branch.leader }}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                <h5>Сотрудники</h5>&ndash;&gt;-->
-<!--&lt;!&ndash;                <a href="{% url 'add_staff' branch.id %}">Добавить сотрудника</a>&ndash;&gt;-->
-<!--                <br>-->
-<!--                {% for staff in branch_staff %}-->
-<!--                        {% if staff.id_branch.id == branch.id %}-->
-<!--                        <a href="/editStaff/{{ staff.id }}">-->
-<!--                            {{ staff.last_name }}-->
-<!--                            Номер карты: {{ staff.card_number }}-->
-<!--                            Логин: {{ staff.user }}-->
-<!--                        </a>-->
-<!--                        {% endif %}-->
-<!--                {% endfor %}-->
-<!--            {% endfor %}-->
-<!--            <br>-->
-<!--&lt;!&ndash;            <a href="/editLeader/{{ leader.id }}" class="text-transfer-money">РЕДАКТИРОВАТЬ</a>&ndash;&gt;-->
-<!--        </div>-->
+        <!--            {% for branch in branches %}-->
+            <!--&lt;!&ndash;                <h5>{{ branch.branch_name }}</h5>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <p>{{ branch.address }}</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <p>Руководитель: {{ branch.leader }}</p>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <h5>Сотрудники</h5>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <a href="{% url 'add_staff' branch.id %}">Добавить сотрудника</a>&ndash;&gt;-->
+            <!--                <br>-->
+            <!--                {% for staff in branch_staff %}-->
+                <!--                        {% if staff.id_branch.id == branch.id %}-->
+                    <!--                        <a href="/editStaff/{{ staff.id }}">-->
+                    <!--                            {{ staff.last_name }}-->
+                    <!--                            Номер карты: {{ staff.card_number }}-->
+                    <!--                            Логин: {{ staff.user }}-->
+                    <!--                        </a>-->
+                    <!--                        {% endif %}-->
+                <!--                {% endfor %}-->
+            <!--            {% endfor %}-->
+        <!--            <br>-->
+        <!--&lt;!&ndash;            <a href="/editLeader/{{ leader.id }}" class="text-transfer-money">РЕДАКТИРОВАТЬ</a>&ndash;&gt;-->
+        <!--        </div>-->
     {% endif %}
 {% endblock %}
