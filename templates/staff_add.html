@@ -8,16 +8,16 @@
     {% if request.user.is_authenticated %}
         <div class='w-full grid grid-cols-1 md:grid-cols-12 mt-16'>
             <div class="w-full grid grid-cols-1 col-start-2 col-span-1">
-                <a href="{% url 'leader' %}"
-                   class="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
-                    Назад
-                </a>
+                <button type="submit"
+                        class="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
+                    <a href="{% url 'leader' %}">Назад</a>
+                </button>
             </div>
         </div>
         <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-md w-full space-y-8">
                 <div>
-                    <img class="mx-auto h-20 w-auto" src="../media/logo-main.png" alt="Workflow">
+                    <img class="mx-auto h-20 w-auto" src="/media/logo-main.png" alt="Workflow">
                     <h1 class="mt-6 text-center text-3xl font-extrabold">
                         Добавление сотрудника в {{ branch.branch_name }}
                     </h1>
