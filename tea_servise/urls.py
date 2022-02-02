@@ -20,5 +20,6 @@ urlpatterns = [
     path('editLeader/<int:id>', views.editLeader, name="editLeader"),
     path('editBranch/<int:id>', views.editBranch, name="edit_branch"),
     path('editStaff/<int:id>', views.editStaff, name="editStaff"),
+    path('delete_image/<int:id>/', views.delete_image, name='delete_image'),
 
 ]
