@@ -59,15 +59,15 @@
                         </div>
                         <div>
                             <label for="branch_name" class="form-label">Название филиала</label>
-                            <textarea id="branch_name" name="branch_name" type="text" required
+                            <input id="branch_name" name="branch_name" type="text" required
                                       class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                      placeholder="Название филиала">{{ branch.branch_name }}</textarea>
+                                      placeholder="Название филиала" value="{{ branch.branch_name }}">
                         </div>
                         <div>
                             <label for="address" class="form-label">Адрес филиала</label>
-                            <textarea id="address" name="address" type="text" required
+                            <input id="address" name="address" type="text" required
                                       class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                      placeholder="Адрес филиала">{{ branch.address }}</textarea>
+                                      placeholder="Адрес филиала" value="{{ branch.address }}">
                         </div>
                         <br>
                         <div>
