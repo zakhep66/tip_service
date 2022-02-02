@@ -22,8 +22,22 @@
                 <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
                     <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
                         <div class="card_staff p-6">
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
+                                {% if error != '' %}
+                                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                                         role="alert">
+                                        <strong class="font-bold">Внимание!</strong><br>
+                                        <span class="block sm:inline">{{ error }}</span>
+                                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                            <svg
+                                                    class="fill-current h-6 w-6 text-red-500" role="button"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"><title>Close</title>
+                                            <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                                        </span>
+                                    </div>
+                                {% endif %}
                                 <table class="table-auto">
                                     <tbody>
                                     <tr>
@@ -39,8 +53,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><label for="card" class="form-label">Номер карты</label></td>
-                                        <td><input type="text" name="card" id="card"
+                                        <td><label for="card_number" class="form-label">Номер карты</label></td>
+                                        <td><input type="text" name="card_number" id="card_number"
                                                    class="mb-3 form-control p-2 rounded"
                                                    value="{{ staff.card_number }}"></td>
                                     </tr>
@@ -52,7 +66,8 @@
                                                      style="max-width: 200px;"><br>
                                                 <a href="{{ staff.avatar.url }}" download="сотрудник"
                                                    class="btn btn-secondary btn-sm mt-2">Скачать фотографию</a>
-                                                <a class="btn btn-primary" href="#" role="button">Удалить</a>
+                                                <a class="btn btn-primary" href="{% url 'delete_image' staff.id %}"
+                                                   role="button">Удалить</a>
                                             {% endif %}
                                             {% if staff.avatar == NULL or staff.avatar == '' %}
                                                 <p>У сотрудника нет фотографии</p>
@@ -62,7 +77,6 @@
                                                            aria-describedby="button-addon1">
                                                 </div>
                                             {% endif %}
-                                            <div class="mb-3">{{ f.errors }}</div>
                                         </td>
                                     </tr>
                                     </tbody>

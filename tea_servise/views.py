@@ -186,7 +186,7 @@ def editBranch(request, id):
             form.save()
             return redirect('leader')
         else:
-            error = 'Форма заполнена некорректно'
+            error = str(form.errors)
     context = {
         'leaders': leaders,
         'error': error,
@@ -208,7 +208,7 @@ def editLeader(request, id):
             form.save()
             return redirect('leader')
         else:
-            error = 'Форма заполнена некорректно'
+            error = str(form.errors)
     return render(request, 'editLeader.html', {'leader': leader, 'error': error})
 
 
@@ -221,7 +221,7 @@ def editStaff(request, id):
             form.save()
             return redirect('leader')
         else:
-            error = 'Форма заполнена некорректно'
+            error = str(form.errors)
     return render(request, 'editStaff.html', {'staff': staff, 'error': error})
 
 
