@@ -9,7 +9,7 @@
         <div>
             <button type="submit" class="group relative flex justify-center py-2 px-4 ml-3 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
                 <a href="{% url 'leader' %}">Назад</a>
-              </button>
+            </button>
             <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center h-20'>
                 <div class="data col-start-3 col-span-2 md:grid-cols-1 ml-1">
                     <span class="data">Ваши данные</span>
@@ -18,10 +18,11 @@
                     <div class='flex-grow line h-0.5 ml-4 mr-4'></div>
                 </div>
             </div>
+            {{error}}
             <div class='w-full grid grid-cols-1 md:grid-cols-12 items-center'>
                     <div class="w-full grid grid-cols-1 col-start-4 col-span-6">
                         <div class="card_staff p-6">
-                                <form method="post">
+                                <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <table class="table-auto">
                                         <tbody>
@@ -35,7 +36,7 @@
                                             </tr>
                                             <tr>
                                                 <td><label for="card" class="form-label">Номер карты</label></td>
-                                                <td><input type="text" name="card" id="card" class="mb-3 form-control p-2 rounded" value="{{ staff.card_number }}"></td>
+                                                <td><input type="text" name="card_number" id="card" class="mb-3 form-control p-2 rounded" value="{{ staff.card_number }}"></td>
                                             </tr>
                                             <tr>
                                                 <td><label for="photo" class="form-label">Фотография</label></td>
@@ -43,7 +44,7 @@
                                                     {% if staff.avatar %}
                                                     <img src="{{ staff.avatar.url }}" alt="фотография сотрудника" style="max-width: 200px;"><br>
                                                     <a href="{{ staff.avatar.url }}" download="сотрудник" class="btn btn-secondary btn-sm mt-2">Скачать фотографию</a>
-                                                    <a class="btn btn-primary" href="#" role="button">Удалить</a>
+                                                    <a class="btn btn-primary" href="{% url 'delete_image' staff.id %}" role="button">Удалить</a>
                                                     {% endif %}
                                                     {% if staff.avatar == NULL or staff.avatar == '' %}
                                                     <p>У сотрудника нет фотографии</p>
