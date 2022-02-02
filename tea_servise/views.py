@@ -139,25 +139,34 @@ class AddPaymentView(View):
 class AddBranch(View):
 
     def get(self, request):
-        form = AddBranchForm
+        error = ''
         leaders = Leader.objects.all()
-        organizations = Organization.objects.all()
         context = {
-            'form': form,
             'leaders': leaders,
-            'organizations': organizations
+            'error': error
         }
         return render(request, 'branch.html', context)
 
     def post(self, request):
+        error = ''
         form = AddBranchForm(request.POST or None)
         leaders = Leader.objects.all()
+        org = request.POST['organization']
         if form.is_valid():
-            form.save()
-            return redirect('index')
+            instance = form.save(commit=False)
+            checkOrganization = Organization.objects.filter(legal_name=org).exists()
+            if checkOrganization:
+                instance.organization = Organization.objects.get(legal_name=org)
+            else:
+                Organization.objects.create(legal_name=org)
+                instance.organization = Organization.objects.get(legal_name=org)
+            instance.save()
+            return redirect('leader')
+        else:
+            error = str(form.errors)
         context = {
-            'form': form,
-            'leaders': leaders
+            'leaders': leaders,
+            'error': error
         }
         return render(request, 'branch.html', context)
 

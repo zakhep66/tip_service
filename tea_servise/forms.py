@@ -91,7 +91,8 @@ class AddBranchForm(forms.ModelForm):
 
     class Meta:
         model = Branch
-        fields = "__all__"
+        fields = ['leader', 'branch_name', 'address']
+        exclude = ['organization']
 
 
 class AddStaffForm(forms.ModelForm):

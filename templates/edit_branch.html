@@ -38,8 +38,8 @@
                             <select id="leader" name="leader" required
                                     class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm">
                                 {% for leader in leaders %}
-                                    <option {% if leader.id == person.id %} selected {% endif %}
-                                                                            value="{{ leader.id }}">
+                                    <option {% if leader.id == person.id %} selected {% endif %} value="{{ leader.id }}"
+                                                                            disabled>
                                         {{ leader.last_name }} {{ leader.first_name }}
                                     </option>
                                 {% endfor %}
@@ -60,14 +60,14 @@
                         <div>
                             <label for="branch_name" class="form-label">Название филиала</label>
                             <input id="branch_name" name="branch_name" type="text" required
-                                      class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                      placeholder="Название филиала" value="{{ branch.branch_name }}">
+                                   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
+                                   placeholder="Название филиала" value="{{ branch.branch_name }}">
                         </div>
                         <div>
                             <label for="address" class="form-label">Адрес филиала</label>
                             <input id="address" name="address" type="text" required
-                                      class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
-                                      placeholder="Адрес филиала" value="{{ branch.address }}">
+                                   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:z-10 sm:text-sm"
+                                   placeholder="Адрес филиала" value="{{ branch.address }}">
                         </div>
                         <br>
                         <div>
