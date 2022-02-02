@@ -1,183 +1,214 @@
-.bg-light-1
+/*--------------------sections--------------------*/
+.section
 {
     height: 100vh;
+}
+
+.section:nth-child(1)
+{
     background-color: #F0EDE8;
     position: relative;
 }
 
-.bg-light-1-last
+.section:nth-child(2)
 {
-    height: 100vh;
-    background-color: #F0EDE8;
-    /*text-align: center;*/
-}
-
-.bg-menu-color
-{
-    height: 100vh;
     background-color: #DFDCCF;
-    position: relative;
 }
 
-.bg-light-2
+.section:nth-child(3)
 {
-    height: 100vh;
     background-color: #E5DFDB;
     position: relative;
 }
 
-.text-logo-first{
-    color: #76A34F;
+.section:nth-child(4)
+{
+    background-color: #F0EDE8;
 }
 
-.text-logo-second{
-    color: #939598;
-}
-
-.text-logo-third{
-    color: #8F7962;
-}
-
+/*--------------------section 1--------------------*/
 .button-login
 {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 1em;
+    right: 1em;
 }
 
 .text-login
 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 3vh;
     color: #787774;
     position: absolute;
-    right: 60px;
+    right: 2em;
+    top: -0.1em;
 }
 
 .img-login
 {
-    height: 40px;
+    height: 4vh;
 }
 
 .img-logo
 {
-    height: 350px;
+    height: 40vh;
+    max-height: 48vw;
+    margin-left: 8vw;
+}
+
+.img-giving-hand
+{
+    height: 20vh;
+    max-height: 18vw;
+}
+
+.logo-and-hand
+{
     position: absolute;
-    top: 50px;
-    left: 120px;
+    top: 5vh;
+    left: 3vw;
+}
+
+.text-logo-el:nth-child(1)
+{
+    color: #76A34F;
+}
+
+.text-logo-el:nth-child(2)
+{
+    color: #939598;
+}
+
+.text-logo-el:nth-child(3)
+{
+    color: #8F7962;
 }
 
 .text-logo
 {
     font-family: 'Amatic SC', cursive;
-    font-size: 200px;
-    position: absolute;
-    top: 180px;
-    right: 200px;
-}
-
-.img-giving-hand
-{
-    height: 120px;
-    position: absolute;
-    top: 350px;
-    left: 25px;
+    font-size: 15vw;
 }
 
 .img-green-tea
 {
     transform: rotate(35deg);
-    height: 80px;
-    position: absolute;
-    top: 150px;
-    right: 230px;
+    height: 10vh;
+    max-height: 7vw;
+    margin-left: 35vw;
 }
 
-.img-transfer-money
+.name-and-leaf
 {
-    height: 50px;
+    position: absolute;
+    top: 9em;
+    right: 12vw;
 }
 
 .img-tips-service
 {
-    height: 120px;
-    position: absolute;
-    bottom: 140px;
-    right: 300px;
+    height: 15vh;
+    max-height: 15vw;
+    float: right;
 }
 
 .text-tips-service
 {
     font-family: 'Marmelad', sans-serif;
-    font-size: 30px;
+    font-size: 2em;
     color: #8F7962;
+}
+
+.tips-service-group
+{
     position: absolute;
-    bottom: 220px;
-    right: 460px;
+    bottom: 5vw;
+    right: 20vw;
 }
 
 .button-transfer-money
 {
     background-color: #C1D1AA;
     border: none;
-    border-radius: 20px;
-    height: 100px;
-    width: 280px;
+    border-radius: 1.5em;
+    height: 6em;
+    width: 16em;
     position: absolute;
-    bottom: 60px;
-    left: 60px;
-}
-
-.text-transfer-money, .text-registration
-{
-    font-family: 'Amatic SC', cursive;
-    font-size: 50px;
-    color: #625C60;
-    position: relative;
-    top: 10px;
-    left: -20px;
+    bottom: 2em;
+    left: 2em;
 }
 
 .img-transfer-money
 {
-    height: 50px;
+    height: 3em;
+    float: right;
     position: relative;
-    left: 210px;
-    bottom: 45px;
+    left: -1.5em;
+    top: 1em;
 }
 
-h1.second
+.text-transfer-money
+{
+    font-family: 'Amatic SC', cursive;
+    font-size: 3em;
+    color: #625C60;
+}
+
+/*--------------------section 2--------------------*/
+h1
 {
     font-family: 'Marmelad', sans-serif;
-    font-size: 40px;
+    font-size: 5vh;
     color: #625C60;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 40px;
-    width: 33%;
     text-align: center;
-    margin-bottom: 130px;
+    margin-top: 1em;
 }
 
-.line
+.parent
 {
-    width: 3px;
-    height: 40vh;
-    background-color: #625C60;
-    margin-left: auto;
+    display: flex;
+    flex: 1;
+    margin-top: 10vh;
+    flex-wrap: wrap;
+}
+
+.column
+{
+    display: flex;
+    flex: 1;
+    text-align: center;
+    padding: 5vw;
+}
+
+figure
+{
+    display: block;
+    margin: 0 auto;
+}
+
+.img-column
+{
+    height: 20vh;
     margin-right: auto;
-    margin-top: 50px;
+    margin-left: auto;
+    margin-bottom: 5vh;
+    display: flex;
+    flex: 1;
 }
 
-.img-registration
+.text-column
 {
-    height: 50px;
-    position: relative;
-    left: 230px;
-    bottom: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2.5vh;
+    color: #625C60;
 }
 
+/*--------------------section 3--------------------*/
 .button-registration
 {
     background-color: #C1D1AA;
@@ -186,57 +217,44 @@ h1.second
     height: 100px;
     width: 300px;
     position: absolute;
-    bottom: 60px;
-    left: 60px;
+    bottom: 40px;
+    left: 40px;
 }
 
-.parent
+.text-registration
 {
-    display: flex;
+    font-family: 'Amatic SC', cursive;
+    font-size: 45px;
+    color: #625C60;
+    position: relative;
+    top: 15px;
+    left: -20px;
 }
 
-.column
+.img-registration
 {
-    width: 33%;
-    text-align: center;
-    padding-left: 80px;
-    padding-right: 80px;
+    height: 50px;
+    position: relative;
+    left: 230px;
+    bottom: 40px;
 }
 
-.img-column
+.line
 {
-    height: 150px;
+    width: 2px;
+    height: 40vh;
+    background-color: #625C60;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 30px;
+    margin-top: 50px;
 }
 
-.text-column
-{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    color: #625C60;
-}
-
+/*--------------------section 4--------------------*/
 .img-qr
 {
     height: 100px;
     margin-left: auto;
     margin-right: auto;
-}
-
-h1
-{
-    font-family: 'Marmelad', sans-serif;
-    font-size: 40px;
-    color: #625C60;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 40px;
-    width: 33%;
-    text-align: center;
-    margin-bottom: 30px;
 }
 
 input
@@ -268,19 +286,6 @@ form
     text-align: center;
 }
 
-h1.last
-{
-    font-family: 'Marmelad', sans-serif;
-    font-size: 40px;
-    color: #625C60;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    width: 33%;
-    text-align: center;
-    margin-bottom: 0px;
-}
-
 input::placeholder
 {
     color: #787774;
@@ -303,21 +308,77 @@ input::placeholder
     margin-top: 10px;
 }
 
-.button-up
-{
-    height: 80px;
-    width: 80px;
-    background-color: #BBB1A3;
-    border: none;
-    border-radius: 50%;
-    position: fixed;
-    display: none;
-    bottom: 30px;
-    right: 30px;
+/*--------------------mobile phones--------------------*/
+@media (min-width: 100px) and (max-width: 500px) {
+    .text-login
+    {
+        font-size: 2vh;
+    }
+    .img-login
+    {
+        height: 3vh;
+    }
+    .img-logo
+    {
+        height: 30vh;
+    }
+    .img-giving-hand
+    {
+        height: 10vh;
+    }
+    .logo-and-hand
+    {
+        top: 3vh;
+    }
+    .name-and-leaf
+    {
+        top: 38vh;
+    }
+    .text-logo
+    {
+        font-size: 25vw;
+    }
+    .img-green-tea
+    {
+        height: 12vh;
+        margin-left: 60vw;
+    }
+    .text-tips-service
+    {
+        font-size: 2vh;
+    }
+    .tips-service-group
+    {
+        bottom: 30vh;
+        right: 20vw;
+    }
+    .button-transfer-money
+    {
+        left: calc(50vw - 8em);
+    }
+    h1
+    {
+        font-size: 2.5vh;
+        width: 60%;
+    }
+    .parent
+    {
+        margin-top: 3vh;
+    }
+    .column
+    {
+        min-width: 100vw;
+    }
+    .img-column
+    {
+        width: 28vw;
+        height: auto;
+        margin-bottom: 2.5vh;
+    }
+    .text-column
+    {
+        font-size: 2vh;
+    }
 }
 
-.img-up
-{
-    height: 50px;
-    margin: auto;
-}
+/*--------------------mobile phones--------------------*/
