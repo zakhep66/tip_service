@@ -5,6 +5,7 @@ from django.views import View
 from django.contrib.auth import authenticate, login
 from django.views.generic import DetailView, ListView
 import datetime
+from django.contrib import messages
 
 from .forms import *
 from .models import *
@@ -215,7 +216,7 @@ def editStaff(request, id):
     error = ''
     staff = Staff.objects.get(id=id)
     if request.method == 'POST':
-        form = StaffEditForm(request.POST, instance=staff)
+        form = StaffEditForm(request.POST, request.FILES, instance=staff)
         if form.is_valid():
             form.save()
             return redirect('leader')
@@ -261,3 +262,11 @@ class AddStaff(View):
 
         context = {'form': form_staff, 'error': error}
         return render(request, 'staff_add.html', context)
+
+
+def delete_image(request, id):
+    staff = Staff.objects.get(id=id)
+    image = staff.avatar
+    image_del = image.delete()
+    messages.add_message(request, messages.INFO, 'Сотрудник успешно изменён!')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
