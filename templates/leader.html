@@ -91,7 +91,11 @@
                                         <img src="../media/edit.png" class="edit-staff" alt="редактировать сотрудника">
                                     </a>
                                     <div class="block_photo_staff" style="width: max-content; float: left;">
-                                        <img class="photo_staff h-28 w-28 object-cover object-center rounded-full" src="../media/{{ staff.avatar }}" alt="photo_staff">
+                                        {% if staff.avatar %}
+                                            <img class="photo_staff h-28 w-28 object-cover object-center rounded-full" src="../media/{{ staff.avatar }}" alt="photo_staff">
+                                        {% else %}
+                                            <img class="photo_staff h-28 w-28 object-cover object-center rounded-full" src="../media/default-avatar.png" alt="photo_staff">
+                                        {% endif %}
                                     </div>
                                     <div class="text-staff">
                                         <h2 class="staff_name mb-1">{{ staff.last_name }} {{ staff.first_name }}</h2>
