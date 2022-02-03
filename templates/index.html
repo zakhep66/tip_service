@@ -94,6 +94,23 @@
             <a href="{% url 'registration' %}" class="text-registration">Подключить</a>
             <img src="../media/people.png" class="img-registration">
         </button>
+        <div class="reg-steps-num">
+            <p class="step-num">1.</p>
+            <p class="step-num">2.</p>
+            <p class="step-num">3.</p>
+        </div>
+        <div class="reg-steps">
+            <p class="step">Заполните форму регистрации руководителя</p>
+            <p class="step">Зарегистрируйте вашу организацию и добавьте филиал</p>
+            <p class="step">Добавьте и зарегистрируйте сотрудников</p>
+        </div>
+        <p class="done">Готово!</p>
+        <div class="done-block">
+            <p class="done-details">На чеках в вашем заведении будет печататься QR-код и id сотрудника</p>
+            <p class="done-details">Посетители смогут перейти на наш сайт и через простую форму перевести сотруднику чаевые</p>
+        </div>
+        <img src="../media/tips-hand.png" class="tips-hand-img">
+        <img src="../media/tips-jar.png" class="tips-jar-img">
     </div>
 
     <div class="section">
@@ -121,9 +138,9 @@
             <label for="rating">Оценка:</label>
             <input id="rating" name="rating" type="number" min="1" max="5" step="1" placeholder="оценка от 1 до 5..." required>
             <button type="submit" class="button-form">
-                <span class="text-logo-first">Дать</span>
-                <span class="text-logo-second">на</span>
-                <span class="text-logo-third">Чай</span>
+                <span class="text-logo-el">Дать</span>
+                <span class="text-logo-el">на</span>
+                <span class="text-logo-el">Чай</span>
             </button>
         </form>
     </div>
