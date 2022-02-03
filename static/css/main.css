@@ -249,6 +249,85 @@ figure
     margin-top: 50px;
 }
 
+.reg-steps-num
+{
+    position: absolute;
+    top: 35vh;
+    left: 12vw;
+}
+
+.reg-steps
+{
+    position: absolute;
+    top: 35vh;
+    left: 15vw;
+}
+
+.step-num
+{
+    margin-bottom: 6vh;
+    font-family: 'Amatic SC', cursive;
+    font-size: 45px;
+    color: #625C60;
+}
+
+.step
+{
+    margin-bottom: 8vh;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2.8vh;
+    color: #625C60;
+    width: 28vw;
+    position: relative;
+}
+
+.done
+{
+    color: #76A34F;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 4vh;
+    position: absolute;
+    top: 35vh;
+    right: 35vw;
+}
+
+.done-block
+{
+    position: absolute;
+    top: 45vh;
+    right: 14vw;
+    width: 28vw;
+}
+
+.done-details
+{
+    margin-bottom: 6vh;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2.8vh;
+    color: #625C60;
+}
+
+.tips-hand-img
+{
+    height: 15vh;
+    position: absolute;
+    bottom: 13vh;
+    right: 3vw;
+    transform: rotate(-14.24deg);
+}
+
+.tips-jar-img
+{
+    height: 15vh;
+    position: absolute;
+    bottom: 5vh;
+    right: 10vw;
+    transform: rotate(21.05deg);
+}
+
 /*--------------------section 4--------------------*/
 .img-qr
 {
