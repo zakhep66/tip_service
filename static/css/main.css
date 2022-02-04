@@ -208,35 +208,45 @@ figure
     color: #625C60;
 }
 
+.git-link
+{
+    color: #76A34F;
+}
+
+.git-link:hover
+{
+    text-decoration: underline;
+}
+
 /*--------------------section 3--------------------*/
 .button-registration
 {
     background-color: #C1D1AA;
     border: none;
-    border-radius: 20px;
-    height: 100px;
-    width: 300px;
+    border-radius: 1.5em;
+    height: 6em;
+    width: 18em;
     position: absolute;
-    bottom: 40px;
-    left: 40px;
+    bottom: 2em;
+    left: 2em;
 }
 
 .text-registration
 {
     font-family: 'Amatic SC', cursive;
-    font-size: 45px;
+    font-size: 3em;
     color: #625C60;
     position: relative;
-    top: 15px;
-    left: -20px;
+    left: -0.1em;
 }
 
 .img-registration
 {
-    height: 50px;
+    height: 3em;
+    float: right;
     position: relative;
-    left: 230px;
-    bottom: 40px;
+    left: -0.9em;
+    top: 1em;
 }
 
 .line
@@ -267,7 +277,7 @@ figure
 {
     margin-bottom: 6vh;
     font-family: 'Amatic SC', cursive;
-    font-size: 45px;
+    font-size: 3em;
     color: #625C60;
 }
 
@@ -331,20 +341,21 @@ figure
 /*--------------------section 4--------------------*/
 .img-qr
 {
-    height: 100px;
+    height: 15vh;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 3vh;
 }
 
 input
 {
     background-color: #C1D1AA;
     border: none;
-    border-radius: 20px;
-    height: 50px;
-    width: 450px;
-    padding: 5px 20px;
-    margin-bottom: 10px;
+    border-radius: 1.5em;
+    height: 7vh;
+    width: 25vw;
+    padding: 1em 1.5em;
+    margin-bottom: 1em;
 }
 
 label
@@ -353,16 +364,22 @@ label
     color: #625C60;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 0.5em;
 }
 
 form
 {
-    width: 550px;
+    margin-top: 8vh;
+    width: 52vw;
     margin-right: auto;
     margin-left: auto;
     align-items: center;
-    text-align: center;
+    text-align: left;
+}
+
+.error-block {
+    width: 50vw;
+    margin: auto;
 }
 
 input::placeholder
@@ -376,15 +393,32 @@ input::placeholder
 {
     display: block;
     font-family: 'Amatic SC', cursive;
-    font-size: 30px;
+    font-size: 3em;
     background-color: #DFDCCF;
     border: none;
-    border-radius: 20px;
-    height: 80px;
-    width: 175px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10px;
+    border-radius: 0.5em;
+    height: 2em;
+    width: 5em;
+    left: calc(50vw - 2.5em);
+    position: absolute;
+    bottom: 4vh;
+}
+
+@media (min-width: 1000px) {
+    .form-col {
+        width: 25vw;
+    }
+
+    .form-col:nth-child(2) {
+        float: right;
+        margin-top: 3.5vh;
+    }
+
+    label
+    {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
 }
 
 /*--------------------mobile phones--------------------*/
@@ -435,6 +469,10 @@ input::placeholder
     {
         left: calc(50vw - 8em);
     }
+    .button-registration
+    {
+        left: calc(50vw - 9em);
+    }
     h1
     {
         font-size: 2.5vh;
@@ -458,6 +496,108 @@ input::placeholder
     {
         font-size: 2vh;
     }
+    .line
+    {
+        width: 80vw;
+        height: 1px;
+        background-color: #625C60;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 35vh;
+    }
+
+    .reg-steps
+    {
+        top: 18vh;
+        left: 22vw;
+    }
+
+    .step
+    {
+        width: 70vw;
+        font-size: 2vh;
+        margin-bottom: 4.5vh;
+    }
+
+    .reg-steps-num
+    {
+        top: 16vh;
+        left: 12vw;
+    }
+
+    .step-num
+    {
+        margin-bottom: 2vh;
+    }
+
+    .done-details
+    {
+        font-size: 2vh;
+        margin-bottom: 2.5vh;
+        width: 70vw;
+    }
+
+    .done-block
+    {
+        left: 11vw;
+        top: 56vh;
+    }
+
+    .done
+    {
+        font-size: 2.5vh;
+        left: 11vw;
+        top: 51vh;
+    }
+
+    .tips-hand-img
+    {
+        height: 8vh;
+        bottom: 24vh;
+    }
+
+    .tips-jar-img
+    {
+        height: 8vh;
+        bottom: 18vh;
+        right: 15vw;
+    }
+
+    form
+    {
+        width: 70vw;
+        margin-right: auto;
+        margin-left: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    input
+    {
+        background-color: #C1D1AA;
+        border: none;
+        border-radius: 1.5em;
+        height: 5vh;
+        width: 70vw;
+        padding: 5px 20px;
+        margin-bottom: 10px;
+    }
+
+    label
+    {
+        display:block;
+        color: #625C60;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .img-qr
+    {
+        height: 12vh;
+        margin-top: 1em;
+        margin-bottom: 3em;
+    }
 }
 
-/*--------------------mobile phones--------------------*/
+/*--------------------tablets--------------------*/
