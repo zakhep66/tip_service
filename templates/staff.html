@@ -20,9 +20,9 @@
                             <div class="card_staff p-6 grid grid-cols-1 md:grid-cols-12">
                                 <div class="col-start-1 col-span-9 items-center md:grid-cols-1 pl-7">
                                     <h2 class="staff_name mb-1">{{ staff.first_name }} {{ staff.last_name }}</h2>
-                                    <p class="mb-1">Организация: ООО "Шоколадница"</p>
+                                    <p class="mb-1">Организация: {{ staff.id_branch.organization }}</p>
                                     <p class="mb-1">{{ staff.id_branch }}</p>
-                                    <p class="mb-1">Руководитель: Иванов Иван Иванович</p>
+                                    <p class="mb-1">Руководитель: {{ staff.id_branch.leader }}</p>
                                     <p class="mb-1">Номер карты: {{ staff.card_number }}</p>
                                     <p class="mb-1">Логин: {{ request.user.username }}</p>
                                 </div>

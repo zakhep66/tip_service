@@ -377,6 +377,11 @@ form
     text-align: left;
 }
 
+.error-block {
+    width: 50vw;
+    margin: auto;
+}
+
 input::placeholder
 {
     color: #787774;
